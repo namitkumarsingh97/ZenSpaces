@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html { 
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px grey;  */
+  background: rgb(229, 229, 229);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d5a948;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #d5a948;
+  cursor: pointer;
+  
+}
+
+@property --num-transactions {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --num-assets {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --num-users {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes counter1 {
+  from {
+    --num-transactions: 0;
+    --num-assets: 0;
+    --num-users: 0;
+  }
+  to {
+    --num-transactions: 519;
+    --num-assets: 119;
+    --num-users: 4600;
+  }
+}
+
+@keyframes counter2 {
+  from {
+    --num-transactions: 0;
+    --num-assets: 0;
+    --num-users: 0;
+  }
+  to {
+    --num-transactions: 1000;
+    --num-assets: 119;
+    --num-users: 4600;
+  }
+}
+
+@keyframes counter3 {
+  from {
+    --num-transactions: 0;
+    --num-assets: 0;
+    --num-users: 0;
+  }
+  to {
+    --num-transactions: 150;
+    --num-assets: 119;
+    --num-users: 4600;
+  }
+}
+
+@keyframes counter4 {
+  from {
+    --num-transactions: 0;
+    --num-assets: 0;
+    --num-users: 0;
+  }
+  to {
+    --num-transactions: 12;
+    --num-assets: 119;
+    --num-users: 4600;
+  }
+}
+
+@keyframes counter5 {
+  from {
+    --num-transactions: 0;
+    --num-assets: 0;
+    --num-users: 0;
+  }
+  to {
+    --num-transactions: 100;
+    --num-assets: 119;
+    --num-users: 4600;
+  }
+}
+@keyframes counter6 {
+  from {
+    --num-transactions: 0;
+    --num-assets: 0;
+    --num-users: 0;
+  }
+  to {
+    --num-transactions: 121;
+    --num-assets: 119;
+    --num-users: 4600;
+  }
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+	pointer-events: all;
+	width: 24px;
+	height: 24px;
+	-webkit-appearance: none;
+  /* @apply w-6 h-6 appearance-none pointer-events-auto; */
+  }
+
+  pre{
+    border-radius: 8px;
+    background-color: #2f3640 !important;
+    color: rgb(183, 255, 255) !important;
+    scroll-padding-top: 20px;
+    overflow-x: scroll;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  
+h1 {
+  @apply text-4xl font-bold text-black mt-6 mb-4;
+}
+
+h2 {
+  @apply text-3xl font-semibold text-black mt-5 mb-3;
+}
+
+h3 {
+  @apply text-2xl font-semibold text-black mt-4 mb-2;
+}
+
+h4 {
+  @apply text-xl font-medium text-black mt-3 mb-2;
+}
+
+h5 {
+  @apply text-lg font-medium text-black mt-2 mb-2;
+}
+
+h6 {
+  @apply text-base font-medium text-black mt-2 mb-2;
+}
+
+p {
+  @apply text-base text-black leading-relaxed mt-2 mb-4;
+}
+
+ol, ul {
+  @apply list-inside list-disc pl-5 mt-4 mb-4;
+}
+
+li {
+  @apply text-black text-base mb-2;
+}
+
+strong {
+  @apply font-bold;
+}
+
+italic {
+  @apply italic;
+}
+
+underline {
+  @apply underline;
+}
