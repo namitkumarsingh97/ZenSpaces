@@ -70,42 +70,42 @@ function AdminsingleCourse() {
 
           <div className="flex flex-col gap-5 justify-center">
             <div className="flex flex-col gap-2">
-              <Typography className="2xl:text-6xl md:test-5xl text-4xl font-ibarra">
+              <Typography className="2xl:text-6xl md:test-5xl text-4xl font-manrope">
                 {course.name || 'Course Title'}
               </Typography>
-              <Typography className="lg:text-3xl italic text-xl font-ibarra">
+              <Typography className="lg:text-3xl italic text-xl font-manrope">
                 By {course.instructor || 'Instructor Name'}
               </Typography>
-              <Typography className="md:text-base text-sm 2xl:max-w-[70%] w-full font-normal font-jost">
+              <Typography className="md:text-base text-sm 2xl:max-w-[70%] w-full font-normal font-mulish">
                 {course.description || 'Course description goes here.'}
               </Typography>
               <div className="flex gap-1">
                 <Rating unratedColor="white" value={4} readonly />
-                <Typography className="text-base font-jost">
+                <Typography className="text-base font-mulish">
                   (5k+ Students)
                 </Typography>
               </div>
               <div className="flex flex-col">
-                <Typography className="text-xl font-jost">
+                <Typography className="text-xl font-mulish">
                   {course.duration || 'Duration'} - {course.durationType}
                 </Typography>
-                <Typography className="text-lg font-jost">
+                <Typography className="text-lg font-mulish">
                   {course.days && course.days.length > 0
                     ? JSON.parse(course.days).join(', ')
                     : 'Batch Schedule'}
                 </Typography>
               </div>
               <div className="flex items-end gap-3">
-                <Typography className="md:text-3xl text-2xl font-jost">
+                <Typography className="md:text-3xl text-2xl font-mulish">
                   ₹{course.discountedFee || 'Price'}
                 </Typography>
 
-                <Typography className="md:text-lg line-through text-gray-400 font-jost">
+                <Typography className="md:text-lg line-through text-gray-400 font-mulish">
                   {' '}
                   {course.totalFee || 'Original Price'}
                 </Typography>
               </div>
-              <Typography className="font-jost italic ">
+              <Typography className="font-mulish italic ">
                 {' '}
                 {'*Monthly payment options also available*'}
               </Typography>
@@ -140,16 +140,16 @@ function AdminsingleCourse() {
       <div className="items-center bg-amber-100 bg-opacity-50 justify-center w-full min-h-[50vh]">
         <div className="max-w-[90%] 2xl:max-w-[80%] w-full mx-auto 2xl:py-20 py-10 flex 2xl:flex-row flex-col 2xl:gap-10 gap-5">
           <div className="flex flex-col gap-10">
-            <Typography className="font-ibarra 2xl:w-[60%] text-3xl text-black md:text-4xl 2xl:text-5xl">
+            <Typography className="font-manrope 2xl:w-[60%] text-3xl text-black md:text-4xl 2xl:text-5xl">
               Recieve A Certificate Upon Completion
             </Typography>
             <div className="flex 2xl:items-center gap-5">
               <FaCheckCircle size={40} className="text-black" />
               <div className="flex flex-col gap-1">
-                <Typography className="font-jost text-black 2xl:text-2xl text-xl font-medium">
+                <Typography className="font-mulish text-black 2xl:text-2xl text-xl font-medium">
                   Official & Verified
                 </Typography>
-                <Typography className="font-jost text-black 2xl:text-lg text-base font-normal">
+                <Typography className="font-mulish text-black 2xl:text-lg text-base font-normal">
                   Receive an instructor signed certificate with institution’s
                   logo to verify your achievements.
                 </Typography>
@@ -158,10 +158,10 @@ function AdminsingleCourse() {
             <div className="flex 2xl:items-center gap-5">
               <FaCheckCircle size={40} className="text-black" />
               <div className="flex flex-col gap-1">
-                <Typography className="font-jost text-black 2xl:text-2xl text-xl font-medium">
+                <Typography className="font-mulish text-black 2xl:text-2xl text-xl font-medium">
                   Easily Shareable
                 </Typography>
-                <Typography className="font-jost text-black 2xl:text-lg text-base 2xl:max-w-[80%] font-normal">
+                <Typography className="font-mulish text-black 2xl:text-lg text-base 2xl:max-w-[80%] font-normal">
                   Add the certificate to your CV or your Resume or post it
                   directly on LinkedIn. You can even post it on instagram and
                   twitter.
@@ -171,10 +171,10 @@ function AdminsingleCourse() {
             <div className="flex 2xl:items-center gap-5">
               <FaCheckCircle size={40} className="text-black" />
               <div className="flex flex-col gap-1">
-                <Typography className="font-jost text-black 2xl:text-2xl text-xl font-medium">
+                <Typography className="font-mulish text-black 2xl:text-2xl text-xl font-medium">
                   Enhances Credibility
                 </Typography>
-                <Typography className="font-jost text-black 2xl:text-lg text-base font-normal">
+                <Typography className="font-mulish text-black 2xl:text-lg text-base font-normal">
                   Use your certificate to enhance your professional credibility
                   and stand out among your peers!
                 </Typography>
@@ -190,10 +190,10 @@ function AdminsingleCourse() {
               alt="Trophy"
             />
             <div className="flex flex-col text-center gap-1">
-              <Typography className="font-jost text-black text-3xl 2xl:text-4xl font-normal">
+              <Typography className="font-mulish text-black text-3xl 2xl:text-4xl font-normal">
                 After Completion,
               </Typography>
-              <Typography className="font-jost text-black text-4xl 2xl:text-5xl font-medium">
+              <Typography className="font-mulish text-black text-4xl 2xl:text-5xl font-medium">
                 Get A Certificate
               </Typography>
             </div>
@@ -201,19 +201,19 @@ function AdminsingleCourse() {
         </div>
       </div>
       <div className="w-full 2xl:max-w-[80%] max-w-[90%] 2xl:mt-20 mt-10 mx-auto 2xl:gap-5 gap-2 flex flex-col items-center py-10 border border-black border-opacity-5 shadow-2xl rounded-xl justify-center 2xl:py-20">
-        <Typography className="2xl:text-5xl md:text-4xl text-3xl text-center md:px-10 lg:px-0 2xl:text-start text-black font-medium font-ibarra">
+        <Typography className="2xl:text-5xl md:text-4xl text-3xl text-center md:px-10 lg:px-0 2xl:text-start text-black font-medium font-manrope">
           {' '}
           {course.name || 'coursetitle'}
         </Typography>
         <div className="flex flex-col">
-          <Typography className="2xl:text-xl text-base text-center 2xl:text-start text-black font-normal font-jost">
+          <Typography className="2xl:text-xl text-base text-center 2xl:text-start text-black font-normal font-mulish">
             {' '}
             {course.duration || 'duration'},{' '}
             {course.days && course.days.length > 0
               ? JSON.parse(course.days).join(', ')
               : 'batch'}
           </Typography>
-          <Typography className="2xl:text-xl text-base text-center 2xl:text-start text-black font-normal font-jost">
+          <Typography className="2xl:text-xl text-base text-center 2xl:text-start text-black font-normal font-mulish">
             {' '}
             {course.timeSlot
               ? `${course.timeSlot.startTime} - ${course.timeSlot.endTime}`
@@ -221,11 +221,11 @@ function AdminsingleCourse() {
           </Typography>
         </div>
         <div className="flex items-end gap-3">
-          <Typography className="2xl:text-3xl text-2xl text-black font-normal font-jost">
+          <Typography className="2xl:text-3xl text-2xl text-black font-normal font-mulish">
             {' '}
             {course.discountedFee || 'price'}
           </Typography>
-          <Typography className="2xl:text-lg line-through text-gray-500 font-normal font-jost">
+          <Typography className="2xl:text-lg line-through text-gray-500 font-normal font-mulish">
             {' '}
             {course.totalFee || 'originalPrice'}
           </Typography>

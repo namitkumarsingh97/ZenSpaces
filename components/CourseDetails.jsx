@@ -88,28 +88,28 @@ const CourseEnroll = () => {
   return (
     <div className='w-full bg-white bg-[url("/bgenroll.jpg")] bg-cover bg-center'>
       <div className='w-full bg-cover flex items-center justify-center mt-[-40%] md:mt-[-20%] lg:mt-[-14%] xl:mt-[-8.7%] h-[37vh] gap-5 flex-col bg-no-repeat bg-[url("/aboutbg.webp")]'>
-        <Typography className="font-ibarra xl:text-6xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl xl:mt-40 mt-20">
+        <Typography className="font-manrope xl:text-6xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl xl:mt-40 mt-20">
           Lal Kitab Course
         </Typography>
         <Breadcrumbs className="border-2 border-[#AF8C3E]">
           <a
-            href="https://astropathways.com/"
-            className="font-jost text-white  text-sm md:text-base"
+            href="https://ZenSpaces.com/"
+            className="font-mulish text-white  text-sm md:text-base"
           >
             Home
           </a>
           <a
-            href="https://astropathways.com/courses"
-            className="font-jost text-white  text-sm md:text-base"
+            href="https://ZenSpaces.com/courses"
+            className="font-mulish text-white  text-sm md:text-base"
           >
             Courses
           </a>
-          <a href="#" className="font-jost text-white  text-sm md:text-base">
+          <a href="#" className="font-mulish text-white  text-sm md:text-base">
             {courseData.courseName}
           </a>
           <a
             href="#"
-            className="text-amber-500  font-jost text-base md:test-lg"
+            className="text-amber-500  font-mulish text-base md:test-lg"
           >
             Enrollment
           </a>
@@ -118,7 +118,7 @@ const CourseEnroll = () => {
 
       <div className="w-full min-h-[65vh] xl:max-w-[80%] text-black grid grid-cols-1 lg:grid-cols-2 max-w-[90%] xl:py-20 py-5 mx-auto">
         <div className="flex flex-col gap-5 lg:gap-10 items-center justify-center">
-          <Typography className="font-ibarra text-3xl xl:text-4xl">
+          <Typography className="font-manrope text-3xl xl:text-4xl">
             Available Slots
           </Typography>
           <div className="flex flex-row flex-wrap gap-5 justify-center items-center">
@@ -127,7 +127,7 @@ const CourseEnroll = () => {
                 key={courseData._id}
                 variant="outlined"
                 onClick={() => handleSlotSelect(courseData.timeSlot)}
-                className={`aspect-square font-medium font-jost text-base bg-white border border-opacity-5 rounded-xl flex p-5 flex-col gap-10 items-center justify-center
+                className={`aspect-square font-medium font-mulish text-base bg-white border border-opacity-5 rounded-xl flex p-5 flex-col gap-10 items-center justify-center
       ${
         selectedSlot === courseData.timeSlot
           ? 'text-amber-500 border-amber-500 shadow-[0_4px_6px_rgba(255,215,0,0.3)]'
@@ -143,73 +143,75 @@ const CourseEnroll = () => {
         </div>
 
         <div className="flex flex-col gap-10 mt-10 lg:mt-0 justify-center items-center">
-          <Typography className="font-ibarra text-3xl xl:text-4xl">
+          <Typography className="font-manrope text-3xl xl:text-4xl">
             Course Details
           </Typography>
           <div className="flex flex-col gap-5 justify-center">
             <div className="grid grid-cols-2">
-              <Typography className="font-jost text-lg">
+              <Typography className="font-mulish text-lg">
                 Course Name :
               </Typography>
-              <Typography className="font-jost text-lg font-medium">
+              <Typography className="font-mulish text-lg font-medium">
                 {courseData.name}
               </Typography>
             </div>
             <div className="grid grid-cols-2">
-              <Typography className="font-jost text-lg">Platform :</Typography>
-              <Typography className="font-jost text-lg font-medium">
+              <Typography className="font-mulish text-lg">
+                Platform :
+              </Typography>
+              <Typography className="font-mulish text-lg font-medium">
                 Zoom Meet
               </Typography>
             </div>
             <div className="grid grid-cols-2">
-              <Typography className="font-jost text-lg">
+              <Typography className="font-mulish text-lg">
                 Instructor :
               </Typography>
-              <Typography className="font-jost text-lg font-medium">
+              <Typography className="font-mulish text-lg font-medium">
                 {courseData.instructor}
               </Typography>
             </div>
             <div className="grid grid-cols-2">
-              <Typography className="font-jost text-lg">
+              <Typography className="font-mulish text-lg">
                 Total Cost :
               </Typography>
-              <Typography className="font-jost text-lg font-medium">
+              <Typography className="font-mulish text-lg font-medium">
                 {courseData.totalFee} INR
               </Typography>
             </div>
             <div className="grid grid-cols-2">
-              <Typography className="font-jost text-lg">
+              <Typography className="font-mulish text-lg">
                 Start Date :
               </Typography>
-              <Typography className="font-jost text-lg font-medium">
+              <Typography className="font-mulish text-lg font-medium">
                 {courseData.startDate}{' '}
               </Typography>
             </div>
             <div className="grid grid-cols-2">
-              <Typography className="font-jost text-lg">
+              <Typography className="font-mulish text-lg">
                 Registration Cost:
               </Typography>
-              <Typography className="font-jost text-lg font-medium">
+              <Typography className="font-mulish text-lg font-medium">
                 {courseData.registrationAmount}
                 {'/-'}{' '}
               </Typography>
             </div>
             <div className="grid grid-cols-2">
-              <Typography className="font-jost text-lg">Duration</Typography>
-              <Typography className="font-jost text-lg font-medium">
+              <Typography className="font-mulish text-lg">Duration</Typography>
+              <Typography className="font-mulish text-lg font-medium">
                 {courseData.duration}{' '}
               </Typography>
             </div>
             <div className="grid grid-cols-2">
-              <Typography className="font-jost text-lg">Batch</Typography>
-              <Typography className="font-jost text-lg font-medium">
+              <Typography className="font-mulish text-lg">Batch</Typography>
+              <Typography className="font-mulish text-lg font-medium">
                 {courseData.days}{' '}
               </Typography>
             </div>
           </div>
           <Button
             onClick={handleProceedClick}
-            className="font-jost md:w-[50%] lg:w-[30%] w-full rounded-lg border opacity-100 border-white transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base"
+            className="font-mulish md:w-[50%] lg:w-[30%] w-full rounded-lg border opacity-100 border-white transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base"
           >
             Proceed
           </Button>

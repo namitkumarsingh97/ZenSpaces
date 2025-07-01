@@ -43,7 +43,7 @@ export function DeletePopUp() {
                   <div className="text-center ">
                     <Typography
                       color="blue-gray"
-                      className="mb-10 font-jost mt-5"
+                      className="mb-10 font-mulish mt-5"
                       variant="h4"
                     >
                       Are you sure that you want to delete this site?
@@ -51,13 +51,13 @@ export function DeletePopUp() {
                     <div className="flex flex-col mt-8 md:flex-row justify-center items-center gap-5">
                       <Button
                         type="sucess"
-                        className=" bg-green-500 font-jost"
+                        className=" bg-green-500 font-mulish"
                         onClick={() => handleOpen()}
                       >
                         Yes
                       </Button>
                       <Button
-                        className=" bg-red-500 font-jost"
+                        className=" bg-red-500 font-mulish"
                         onClick={() => handleOpen()}
                       >
                         No
@@ -127,7 +127,7 @@ export function DeletePopUp1({ courseId, onDeleteSuccess }) {
                   <div className="text-center ">
                     <Typography
                       color="blue-gray"
-                      className="mb-10 font-jost mt-5"
+                      className="mb-10 font-mulish mt-5"
                       variant="h4"
                     >
                       Are you sure that you want to delete this course?
@@ -135,14 +135,14 @@ export function DeletePopUp1({ courseId, onDeleteSuccess }) {
                     {error && <div className="text-red-500">{error}</div>}
                     <div className="flex flex-col mt-8 md:flex-row justify-center items-center gap-5">
                       <Button
-                        className="bg-green-500 font-jost"
+                        className="bg-green-500 font-mulish"
                         onClick={handleDelete}
                         disabled={loading}
                       >
                         {loading ? 'Deleting...' : 'Yes'}
                       </Button>
                       <Button
-                        className="bg-red-500 font-jost"
+                        className="bg-red-500 font-mulish"
                         onClick={() => handleOpen()}
                       >
                         No
@@ -188,7 +188,7 @@ export function DeletePopUp3() {
                   <div className="text-center ">
                     <Typography
                       color="blue-gray"
-                      className="mb-10 font-jost mt-5"
+                      className="mb-10 font-mulish mt-5"
                       variant="h4"
                     >
                       Are you sure that you want to delete this customer?
@@ -196,13 +196,13 @@ export function DeletePopUp3() {
                     <div className="flex flex-col mt-8 md:flex-row justify-center items-center gap-5">
                       <Button
                         type="sucess"
-                        className=" bg-green-500 font-jost"
+                        className=" bg-green-500 font-mulish"
                         onClick={() => handleOpen()}
                       >
                         Yes
                       </Button>
                       <Button
-                        className=" bg-red-500 font-jost"
+                        className=" bg-red-500 font-mulish"
                         onClick={() => handleOpen()}
                       >
                         No

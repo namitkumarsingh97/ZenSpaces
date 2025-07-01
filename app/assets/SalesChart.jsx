@@ -125,7 +125,7 @@ export default function SalesChart() {
           <FaMoneyBillTrendUp className="h-8 w-8" />
         </div>
         <div>
-          <Typography className="text-xl font-medium text-black font-jost">
+          <Typography className="text-xl font-medium text-black font-mulish">
             Sales Chart
           </Typography>
         </div>

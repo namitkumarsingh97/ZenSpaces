@@ -20,7 +20,7 @@ export function StickyNavbar1() {
   const router = useRouter();
 
   useEffect(() => {
-    const token =localStorage.getItem('enrollmentToken');
+    const token = localStorage.getItem('enrollmentToken');
     setIsLoggedIn(!!token);
 
     const handleResize = () => {
@@ -32,13 +32,13 @@ export function StickyNavbar1() {
   }, []);
 
   const handleLogin = () => {
-   localStorage.setItem('enrollmentToken', 'your-token-value');
+    localStorage.setItem('enrollmentToken', 'your-token-value');
     setIsLoggedIn(true);
   };
 
   const handleLogout = () => {
-   localStorage.removeItem('enrollmentToken');
-   localStorage.removeItem('courseData');
+    localStorage.removeItem('enrollmentToken');
+    localStorage.removeItem('courseData');
     router.push('/adminlogin');
     setIsLoggedIn(false);
     router.refresh();
@@ -47,8 +47,7 @@ export function StickyNavbar1() {
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center xl:gap-6">
       {isLoggedIn ? (
-        <>
-        </>
+        <></>
       ) : (
         <Link
           href="/login"
@@ -59,7 +58,7 @@ export function StickyNavbar1() {
             as="li"
             variant="small"
             color="white"
-            className="py-2 px-3 font-jost text-lg font-normal hover:scale-125 rounded bg-[#AF8C3E] transform transition duration-500"
+            className="py-2 px-3 font-mulish text-sm font-normal bg-[#70A9A1] transform transition duration-500 text-[#2C3E50]"
           >
             Login
           </Typography>
@@ -70,8 +69,8 @@ export function StickyNavbar1() {
 
   return (
     <div className="w-full">
-      <div className="mx-auto shadow-none w-full max-w-[80%] backdrop-blur-0 rounded-none border-none ">
-        <Navbar className="mx-auto backdrop-blur-0 max-w-none p-0 backdrop-saturate-0 shadow-none rounded-none bg-opacity-0 border-none py-2">
+      <div className="mx-auto shadow-none w-full max-w-[80%] bg-black z-999 sticky rounded-none border-none ">
+        <Navbar className="mx-auto bg-black z-999 sticky max-w-none p-0 backdrop-saturate-0 shadow-none rounded-none border-none py-2">
           <div className="flex items-center justify-between text-white">
             <div className="cursor-pointer">
               <Link href="/adminaccount">

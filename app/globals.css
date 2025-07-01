@@ -21,18 +21,19 @@
   }
 }
 
-html { 
+html {
   scroll-behavior: smooth;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
+  background-color: #f6fff8;
 }
 
 @layer utilities {
@@ -64,23 +65,22 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #d5a948;
   cursor: pointer;
-  
 }
 
 @property --num-transactions {
-  syntax: "<integer>";
+  syntax: '<integer>';
   initial-value: 0;
   inherits: false;
 }
 
 @property --num-assets {
-  syntax: "<integer>";
+  syntax: '<integer>';
   initial-value: 0;
   inherits: false;
 }
 
 @property --num-users {
-  syntax: "<integer>";
+  syntax: '<integer>';
   initial-value: 0;
   inherits: false;
 }
@@ -162,26 +162,24 @@ body {
   }
 }
 
-
-input[type=range]::-webkit-slider-thumb {
-	pointer-events: all;
-	width: 24px;
-	height: 24px;
-	-webkit-appearance: none;
+input[type='range']::-webkit-slider-thumb {
+  pointer-events: all;
+  width: 24px;
+  height: 24px;
+  -webkit-appearance: none;
   /* @apply w-6 h-6 appearance-none pointer-events-auto; */
-  }
+}
 
-  pre{
-    border-radius: 8px;
-    background-color: #2f3640 !important;
-    color: rgb(183, 255, 255) !important;
-    scroll-padding-top: 20px;
-    overflow-x: scroll;
-    padding: 15px;
-    margin-bottom: 15px;
-  }
+pre {
+  border-radius: 8px;
+  background-color: #2f3640 !important;
+  color: rgb(183, 255, 255) !important;
+  scroll-padding-top: 20px;
+  overflow-x: scroll;
+  padding: 15px;
+  margin-bottom: 15px;
+}
 
-  
 h1 {
   @apply text-4xl font-bold text-black mt-6 mb-4;
 }
@@ -210,7 +208,8 @@ p {
   @apply text-base text-black leading-relaxed mt-2 mb-4;
 }
 
-ol, ul {
+ol,
+ul {
   @apply list-inside list-disc pl-5 mt-4 mb-4;
 }
 

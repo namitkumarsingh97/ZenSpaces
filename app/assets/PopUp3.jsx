@@ -1,23 +1,29 @@
-
-
-import React, { useState,useEffect } from 'react';
-import { Button, Dialog, DialogHeader, DialogBody, DialogFooter, Typography, Input, IconButton } from '@material-tailwind/react';
+import React, { useState, useEffect } from 'react';
+import {
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+  Typography,
+  Input,
+  IconButton,
+} from '@material-tailwind/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 export function PopUp3() {
   const [open, setOpen] = useState(false);
-  const [name, setName] = useState('');      
-  const [email, setEmail] = useState('');    
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [transactionId, setTransactionId] = useState('')   
+  const [transactionId, setTransactionId] = useState('');
 
-  const router=useRouter();
+  const router = useRouter();
 
   const handleOpen = () => setOpen(!open);
 
-  
   useEffect(() => {
     if (open) {
       // Create script element for Razorpay
@@ -27,7 +33,9 @@ export function PopUp3() {
       script.async = true;
 
       // Append script to the form
-      const paymentButtonForm = document.getElementById('razorpay-payment-form');
+      const paymentButtonForm = document.getElementById(
+        'razorpay-payment-form',
+      );
       if (paymentButtonForm) {
         paymentButtonForm.innerHTML = ''; // Clear previous content
         paymentButtonForm.appendChild(script);
@@ -42,9 +50,8 @@ export function PopUp3() {
     }
   }, [open]);
 
-  
   // const sendMail = async () => {
-  
+
   //   if (!name || !email || !phone || !transactionId) {
   //     alert('Please fill all the fields');
   //     return;
@@ -86,14 +93,29 @@ export function PopUp3() {
 
   return (
     <>
-      <Image src='/2.png' onClick={handleOpen} width={450} className='cursor-pointer animate-pulse xl:max-w-[350px] 2xl:max-w-[450px]' height={450} alt='lalkitab'/>
-      <Dialog size="sm" open={open} handler={handleOpen}   className="p-4 overflow-auto max-h-[90vh] sm:max-h-[80vh] w-full sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto">
+      <Image
+        src="/2.png"
+        onClick={handleOpen}
+        width={450}
+        className="cursor-pointer animate-pulse xl:max-w-[350px] 2xl:max-w-[450px]"
+        height={450}
+        alt="lalkitab"
+      />
+      <Dialog
+        size="sm"
+        open={open}
+        handler={handleOpen}
+        className="p-4 overflow-auto max-h-[90vh] sm:max-h-[80vh] w-full sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto"
+      >
         <DialogHeader className="relative m-0 block">
-          <Typography className="font-ibarra text-4xl" color="blue-gray">
-            Lal kitab Astrology Report<br/> For 5 Years
+          <Typography className="font-manrope text-4xl" color="blue-gray">
+            Lal kitab Astrology Report
+            <br /> For 5 Years
           </Typography>
-          <Typography className="mt-1 font-jost font-normal text-gray-600">
-          This detailed analysis reveals key insights into your personality, relationships, and future prospects, empowering you with guidance and remedies tailored to your unique path.
+          <Typography className="mt-1 font-mulish font-normal text-gray-600">
+            This detailed analysis reveals key insights into your personality,
+            relationships, and future prospects, empowering you with guidance
+            and remedies tailored to your unique path.
           </Typography>
           <IconButton
             size="sm"
@@ -108,7 +130,7 @@ export function PopUp3() {
           {/* <div>
             <Typography
               color="blue-gray"
-              className="mb-2 font-jost text-left font-medium"
+              className="mb-2 font-mulish text-left font-medium"
             >
               Name
             </Typography>
@@ -119,7 +141,7 @@ export function PopUp3() {
               name="name"
               value={name} // Set the value of name state
               onChange={(e) => setName(e.target.value)} // Update name state on change
-              className="placeholder:opacity-100 font-jost focus:!border-t-gray-900"
+              className="placeholder:opacity-100 font-mulish focus:!border-t-gray-900"
               containerProps={{
                 className: "!min-w-full",
               }}
@@ -131,7 +153,7 @@ export function PopUp3() {
           <div>
             <Typography
               color="blue-gray"
-              className="mb-2 font-jost text-left font-medium"
+              className="mb-2 font-mulish text-left font-medium"
             >
               Email
             </Typography>
@@ -143,7 +165,7 @@ export function PopUp3() {
               name="email"
               value={email} // Set the value of email state
               onChange={(e) => setEmail(e.target.value)} // Update email state on change
-              className="placeholder:opacity-100 font-jost focus:!border-t-gray-900"
+              className="placeholder:opacity-100 font-mulish focus:!border-t-gray-900"
               containerProps={{
                 className: "!min-w-full",
               }}
@@ -155,7 +177,7 @@ export function PopUp3() {
           <div>
             <Typography
               color="blue-gray"
-              className="mb-2 font-jost text-left font-medium"
+              className="mb-2 font-mulish text-left font-medium"
             >
               Phone Number
             </Typography>
@@ -167,7 +189,7 @@ export function PopUp3() {
               name="phone"
               value={phone} // Set the value of phone state
               onChange={(e) => setPhone(e.target.value)} // Update phone state on change
-              className="placeholder:opacity-100 font-jost focus:!border-t-gray-900"
+              className="placeholder:opacity-100 font-mulish focus:!border-t-gray-900"
               containerProps={{
                 className: "!min-w-full",
               }}
@@ -186,7 +208,7 @@ export function PopUp3() {
             </div>
           </div>
           <div>
-            <Typography color="blue-gray" className="mb-2 font-jost text-left font-medium">
+            <Typography color="blue-gray" className="mb-2 font-mulish text-left font-medium">
               Transaction ID
             </Typography>
             <Input
@@ -196,12 +218,12 @@ export function PopUp3() {
               name="transactionId"
               value={transactionId}
               onChange={(e) => setTransactionId(e.target.value)}
-              className="placeholder:opacity-100 font-jost focus:!border-t-gray-900"
+              className="placeholder:opacity-100 font-mulish focus:!border-t-gray-900"
               containerProps={{ className: "!min-w-full" }}
               labelProps={{ className: "hidden" }}
             />
           </div> */}
-            <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-4">
             <form id="razorpay-payment-form">
               {/* Razorpay Payment Button will be injected here */}
             </form>
@@ -210,11 +232,11 @@ export function PopUp3() {
         <DialogFooter>
           {/* <Button 
             onClick={sendMail} 
-            className="font-jost rounded-sm border-dotted border border-white hover:scale-110 transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base w-full"
+            className="font-mulish rounded-sm border-dotted border border-white hover:scale-110 transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base w-full"
           >
             Submit
           </Button> */}
-           <Typography className="font-jost text-center text-gray-600 text-sm md:text-base">
+          <Typography className="font-mulish text-center text-gray-600 text-sm md:text-base">
             *Secure payments powered by Razorpay
           </Typography>
         </DialogFooter>

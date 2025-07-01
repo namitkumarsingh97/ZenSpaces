@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
 import { Button, Typography } from '@material-tailwind/react';
 import React, { useState } from 'react';
 import { ProductListCard } from './ProductsSection';
 import { PopUp } from '../app/assets/PopUpButton';
-
 
 const rudrakshaImages = {
   '1 Mukhi': '/Picture20.png',
@@ -29,11 +28,11 @@ const rudrakshaImages = {
 };
 
 const brassVastuImages = {
-  'Swastik': '/Picture22.png',
-  'Deer': '/Picture23.png',
-  'Eagle': '/Picture24.png',
-  'Kuber': '/Picture25.png',
-  'Owl': '/Picture26.png',
+  Swastik: '/Picture22.png',
+  Deer: '/Picture23.png',
+  Eagle: '/Picture24.png',
+  Kuber: '/Picture25.png',
+  Owl: '/Picture26.png',
   'Black and white rabbit': '/Picture27.png',
   'Swan Pair': '/Picture28.png',
   'Brass sun': '/Picture29.png',
@@ -58,8 +57,8 @@ const vastuStripImages = {
 };
 
 const gemstoneImages = {
-  'gemstone1': '/Picture46.png',
- 
+  gemstone1: '/Picture46.png',
+
   // Add more gemstones as needed
 };
 
@@ -82,102 +81,111 @@ const ProductsPage = () => {
   };
 
   return (
-    <div className='w-full'>
-    {/* Hero Section */}
-    <div className='w-full bg-cover  flex items-center justify-center mt-[-40%] md:mt-[-20%] lg:mt-[-15%] xl:mt-[-11%] h-[37vh] xl:h-[50vh] bg-no-repeat bg-[url("/aboutbg.webp")]'>
-            <Typography className="font-ibarra xl:text-6xl text-4xl md:text-5xl xl:mt-40 mt-20">
-              Products
-            </Typography>
-          </div>
-  
-    {/* Main Content Section */}
-    <div className='w-full max-w-[90%] mx-auto py-16 md:py-20'>
-      {/* Rudraksha Section */}
-      <Typography className='text-2xl md:text-3xl font-bold text-center mb-6'>Rudraksha</Typography>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
-        {rudrakshaItems.map((item) => (
-          <ProductListCard
-            key={item}
-            img={rudrakshaImages[item]}
-            name={item}
-            price={''}
-            description={''}
-            // category={'Rudraksha'}
-            handleOpen={handleOpen}
-          />
-        ))}
+    <div className="w-full">
+      {/* Hero Section */}
+      <div className='w-full bg-cover  flex items-center justify-center mt-[-40%] md:mt-[-20%] lg:mt-[-15%] xl:mt-[-11%] h-[37vh] xl:h-[50vh] bg-no-repeat bg-[url("/aboutbg.webp")]'>
+        <Typography className="font-manrope xl:text-6xl text-4xl md:text-5xl xl:mt-40 mt-20">
+          Products
+        </Typography>
       </div>
-  
-      {/* Brass Vastu Items Section */}
-      <Typography className='text-2xl md:text-3xl font-bold text-center mt-12 mb-6'>Brass Vastu Items</Typography>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
-        {brassVastuItems.map((item) => (
-          <ProductListCard
-            key={item}
-            img={brassVastuImages[item]}
-            name={item}
-            price={''} 
-            description={''}
-            // category={'Brass Vastu'}
-            handleOpen={handleOpen} 
-          />
-        ))}
+
+      {/* Main Content Section */}
+      <div className="w-full max-w-[90%] mx-auto py-16 md:py-20">
+        {/* Rudraksha Section */}
+        <Typography className="text-2xl md:text-3xl font-bold text-center mb-6">
+          Rudraksha
+        </Typography>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {rudrakshaItems.map((item) => (
+            <ProductListCard
+              key={item}
+              img={rudrakshaImages[item]}
+              name={item}
+              price={''}
+              description={''}
+              // category={'Rudraksha'}
+              handleOpen={handleOpen}
+            />
+          ))}
+        </div>
+
+        {/* Brass Vastu Items Section */}
+        <Typography className="text-2xl md:text-3xl font-bold text-center mt-12 mb-6">
+          Brass Vastu Items
+        </Typography>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {brassVastuItems.map((item) => (
+            <ProductListCard
+              key={item}
+              img={brassVastuImages[item]}
+              name={item}
+              price={''}
+              description={''}
+              // category={'Brass Vastu'}
+              handleOpen={handleOpen}
+            />
+          ))}
+        </div>
+
+        {/* Vastu Strips Section */}
+        <Typography className="text-2xl md:text-3xl font-bold text-center mt-12 mb-6">
+          Vastu
+        </Typography>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {vastuStrips.map((item) => (
+            <ProductListCard
+              key={item}
+              img={vastuStripImages[item]}
+              name={item}
+              price={''}
+              description={''}
+              // category={'Vastu Strips'}
+              handleOpen={handleOpen}
+            />
+          ))}
+        </div>
+
+        {/* Gemstones Section */}
+        <Typography className="text-2xl md:text-3xl font-bold text-center mt-12 mb-6">
+          Gemstones
+        </Typography>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {gemstones.map((item) => (
+            <ProductListCard
+              key={item}
+              img={gemstoneImages[item]}
+              name={item}
+              price={''}
+              description={''}
+              // category={'Gemstones'}
+              handleOpen={handleOpen}
+            />
+          ))}
+        </div>
+
+        {/* Inquiry Message */}
+        <Typography className="text-lg font-semibold text-center mt-12 mb-4">
+          For enquiry please call:{' '}
+          <span className="text-[#AF8C3E]">9810800988</span>
+        </Typography>
+
+        {/* Load More Button */}
+        <div className="flex justify-center mt-6">
+          <Button className="font-mulish rounded-lg bg-[#AF8C3E] text-white hover:bg-[#8B6B2C] transition duration-300 transform hover:scale-105">
+            Load More
+          </Button>
+        </div>
       </div>
-  
-      {/* Vastu Strips Section */}
-      <Typography className='text-2xl md:text-3xl font-bold text-center mt-12 mb-6'>Vastu</Typography>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
-        {vastuStrips.map((item) => (
-          <ProductListCard
-            key={item}
-            img={vastuStripImages[item]}
-            name={item}
-            price={''}
-            description={''}
-            // category={'Vastu Strips'}
-            handleOpen={handleOpen} 
-          />
-        ))}
-      </div>
-  
-      {/* Gemstones Section */}
-      <Typography className='text-2xl md:text-3xl font-bold text-center mt-12 mb-6'>Gemstones</Typography>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
-        {gemstones.map((item) => (
-          <ProductListCard
-            key={item}
-            img={gemstoneImages[item]}
-            name={item}
-            price={''}
-            description={''}
-            // category={'Gemstones'}
-            handleOpen={handleOpen} 
-          />
-        ))}
-      </div>
-  
-      {/* Inquiry Message */}
-      <Typography className='text-lg font-semibold text-center mt-12 mb-4'>
-        For enquiry please call: <span className='text-[#AF8C3E]'>9810800988</span>
-      </Typography>
-  
-      {/* Load More Button */}
-      <div className="flex justify-center mt-6">
-        <Button className='font-jost rounded-lg bg-[#AF8C3E] text-white hover:bg-[#8B6B2C] transition duration-300 transform hover:scale-105'>
-          Load More
-        </Button>
-      </div>
+
+      {/* PopUp Component */}
+      <PopUp
+        productName={productName}
+        productCategory={productCategory}
+        open={open}
+        setOpen={setOpen}
+      />
     </div>
-  
-    {/* PopUp Component */}
-    <PopUp
-      productName={productName}
-      productCategory={productCategory}
-      open={open}
-      setOpen={setOpen}
-    />
-  </div>
   );
-}
+};
 
 export default ProductsPage;

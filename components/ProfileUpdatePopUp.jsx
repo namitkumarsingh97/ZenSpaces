@@ -66,16 +66,16 @@ function ProfileUpdatePopUp({ user }) {
     <>
       <Button
         onClick={handleOpen}
-        className="font-jost w-full rounded-lg border opacity-100 border-white transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base max-w-[130px]"
+        className="font-mulish w-full rounded-lg border opacity-100 border-white transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base max-w-[130px]"
       >
         Update
       </Button>
       <Dialog open={open} handler={handleOpen}>
-        <DialogHeader className="flex font-jost justify-center border-b-2">
+        <DialogHeader className="flex font-mulish justify-center border-b-2">
           Update Personal Details
         </DialogHeader>
         <DialogBody>
-          <h1 className="block antialiased tracking-normal font-jost font-semibold leading-snug text-blue-gray-900 pb-3">
+          <h1 className="block antialiased tracking-normal font-mulish font-semibold leading-snug text-blue-gray-900 pb-3">
             Personal Details
           </h1>
           <div className="grid grid-cols-12 w-full gap-5">
@@ -108,13 +108,13 @@ function ProfileUpdatePopUp({ user }) {
           <Button
             variant="text"
             color="black"
-            className="capitalize font-jost"
+            className="capitalize font-mulish"
             onClick={handleOpen}
           >
             Cancel
           </Button>
           <Button
-            className="bg-[#AF8C3E] capitalize font-jost"
+            className="bg-[#AF8C3E] capitalize font-mulish"
             onClick={handleSubmit}
             disabled={loading}
           >
@@ -135,16 +135,16 @@ function ProfileUpdatePopUp1() {
     <>
       <Button
         onClick={handleOpen}
-        className="font-jost w-full rounded-lg border opacity-100 border-white transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base max-w-[130px]"
+        className="font-mulish w-full rounded-lg border opacity-100 border-white transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base max-w-[130px]"
       >
         Update
       </Button>
       <Dialog open={open} handler={handleOpen}>
-        <DialogHeader className="flex font-jost justify-center border-b-2">
+        <DialogHeader className="flex font-mulish justify-center border-b-2">
           Update Password
         </DialogHeader>
         <DialogBody>
-          <h1 className="block antialiased tracking-normal font-jost font-semibold leading-snug text-blue-gray-900 pb-3">
+          <h1 className="block antialiased tracking-normal font-mulish font-semibold leading-snug text-blue-gray-900 pb-3">
             Personal Details
           </h1>
           <div className="grid grid-cols-12 w-full gap-5">
@@ -157,13 +157,13 @@ function ProfileUpdatePopUp1() {
           <Button
             variant="text"
             color="black"
-            className="capitalize font-jost"
+            className="capitalize font-mulish"
             onClick={handleOpen}
           >
             Cancel
           </Button>
           <Button
-            className="bg-[#AF8C3E] capitalize font-jost"
+            className="bg-[#AF8C3E] capitalize font-mulish"
             onClick={handleOpen}
           >
             Submit

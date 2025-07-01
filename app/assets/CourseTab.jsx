@@ -1,43 +1,43 @@
-"use client";
+'use client';
 import {
   Tabs,
   TabsHeader,
   TabsBody,
   Tab,
   TabPanel,
-} from "@material-tailwind/react";
-import { FaGraduationCap, FaPhone, FaVideo } from "react-icons/fa";
-import { IoBook } from "react-icons/io5";
-import Overview from "./Overview";
-import Content from "./Content";
-import Instructor from "./Instructor";
-import Help from "./Help";
+} from '@material-tailwind/react';
+import { FaGraduationCap, FaPhone, FaVideo } from 'react-icons/fa';
+import { IoBook } from 'react-icons/io5';
+import Overview from './Overview';
+import Content from './Content';
+import Instructor from './Instructor';
+import Help from './Help';
 
 export function CourseTab({ overview, syllabus, instructor }) {
   const data = [
     {
       icon: <FaVideo size={20} />,
-      label: "Overview",
-      value: "overview",
+      label: 'Overview',
+      value: 'overview',
       desc: <Overview overview={overview} />,
     },
     {
       icon: <IoBook size={20} />,
-      label: "Content",
-      value: "content",
+      label: 'Content',
+      value: 'content',
       desc: <Content syllabus={syllabus} />,
     },
     {
       icon: <FaGraduationCap size={20} />,
-      label: "Instructor",
-      value: "instructor",
+      label: 'Instructor',
+      value: 'instructor',
       desc: <Instructor instructor={instructor} />,
     },
 
     {
       icon: <FaPhone size={20} />,
-      label: "Help",
-      value: "help",
+      label: 'Help',
+      value: 'help',
       desc: <Help />,
     },
   ];
@@ -48,7 +48,7 @@ export function CourseTab({ overview, syllabus, instructor }) {
         <TabsHeader>
           {data.map(({ label, value, icon }) => (
             <Tab
-              className="font-jost text-black font-medium"
+              className="font-mulish text-black font-medium"
               key={value}
               value={value}
             >

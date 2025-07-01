@@ -59,7 +59,7 @@ const ThankYou = () => {
       const pageWidth = doc.internal.pageSize.getWidth();
       const textX = pageWidth / 2;
       const textY = 20;
-      doc.text('ASTROPATHWAYS', pageWidth / 2, 15, { align: 'center' });
+      doc.text('ZenSpaces', pageWidth / 2, 15, { align: 'center' });
 
       const invoiceY = textY + 5;
       doc.setFontSize(15);
@@ -195,36 +195,36 @@ const ThankYou = () => {
     <div className="w-full bg-black text-white">
       {/* Header Section */}
       <div className="w-full bg-cover flex items-center justify-center h-[37vh] bg-no-repeat bg-[url('/aboutbg.webp')]">
-        <Typography className="font-ibarra xl:text-6xl md:text-5xl text-4xl mt-20">
+        <Typography className="font-manrope xl:text-6xl md:text-5xl text-4xl mt-20">
           Thank You
         </Typography>
       </div>
 
       {/* Content Section */}
       <div className="w-full xl:max-w-[50%] max-w-[90%] flex flex-col gap-10 py-10 mx-auto">
-        <Typography className="font-ibarra xl:text-5xl text-center md:text-4xl text-3xl">
+        <Typography className="font-manrope xl:text-5xl text-center md:text-4xl text-3xl">
           Payment Successful!
         </Typography>
-        <Typography className="font-jost xl:text-xl text-center md:text-lg text-base">
+        <Typography className="font-mulish xl:text-xl text-center md:text-lg text-base">
           You’ll receive a confirmation email soon.
         </Typography>
 
         {/* Course Details */}
         <div className="border border-gray-700 p-5 rounded-lg mt-5">
-          <Typography className="font-jost xl:text-lg text-base font-medium">
+          <Typography className="font-mulish xl:text-lg text-base font-medium">
             {courseData?.name}
           </Typography>
-          <Typography className="font-jost text-sm mt-2">
+          <Typography className="font-mulish text-sm mt-2">
             Duration: {courseData?.duration}
           </Typography>
-          <Typography className="font-jost text-sm">Batch: {days}</Typography>
-          <Typography className="font-jost text-sm">
+          <Typography className="font-mulish text-sm">Batch: {days}</Typography>
+          <Typography className="font-mulish text-sm">
             Course Start Date: {formattedDate}
           </Typography>
-          <Typography className="font-jost text-sm mt-2">
+          <Typography className="font-mulish text-sm mt-2">
             Total Fee: {courseData?.totalFee} INR
           </Typography>
-          <Typography className="font-jost text-sm mt-2">
+          <Typography className="font-mulish text-sm mt-2">
             Discounted Fee: {courseData?.discountedFee} INR
           </Typography>
         </div>
@@ -232,26 +232,26 @@ const ThankYou = () => {
         {/* Fee Details */}
         <div className="border border-gray-700 p-5 rounded-lg mt-5">
           <div className="flex justify-between">
-            <Typography className="font-jost">Registration</Typography>
-            <Typography className="font-jost">
+            <Typography className="font-mulish">Registration</Typography>
+            <Typography className="font-mulish">
               {courseData?.registrationAmount} INR
             </Typography>
           </div>
           <div className="flex justify-between">
-            <Typography className="font-jost">Remaining Fee</Typography>
-            <Typography className="font-jost">
+            <Typography className="font-mulish">Remaining Fee</Typography>
+            <Typography className="font-mulish">
               {`${courseData?.discountedFee - courseData?.registrationAmount}`}{' '}
               INR
             </Typography>
           </div>
-          <Typography className="font-jost text-sm mt-2 text-red-500">
+          <Typography className="font-mulish text-sm mt-2 text-red-500">
             Please pay the remaining fee 1 week before the course starting date.
           </Typography>
         </div>
 
         {/* Payment Details */}
         <div className="border border-gray-700 p-5 rounded-lg mt-5">
-          <Typography className="font-jost text-sm">
+          <Typography className="font-mulish text-sm">
             Transaction No.: {transactionID || 'Loading...'}
           </Typography>
         </div>

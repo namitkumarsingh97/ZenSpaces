@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Card, Typography, Rating, Button } from "@material-tailwind/react";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { Card, Typography, Rating, Button } from '@material-tailwind/react';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export function CardDefault({
   courseTitle,
@@ -48,7 +48,7 @@ export function CardDefault({
       courseType,
     };
 
-   localStorage.setItem("courseData", JSON.stringify(courseData));
+    localStorage.setItem('courseData', JSON.stringify(courseData));
     const query = new URLSearchParams({ courseTitle }).toString();
 
     router.push(`/course?${query}`);
@@ -70,23 +70,23 @@ export function CardDefault({
           />
         </div>
         <div className="flex flex-col w-full xl:w-1/2 p-5">
-          <Typography className="text-3xl m-0 lg:text-4xl font-ibarra">
+          <Typography className="text-3xl m-0 lg:text-4xl font-manrope">
             {courseTitle}
           </Typography>
-          <Typography className="text-lg mt-0 lg:text-2xl italic font-ibarra">
+          <Typography className="text-lg mt-0 lg:text-2xl italic font-manrope">
             By Astrologer {instructor}
           </Typography>
-          <Typography className="text-sm mt-0 lg:text-base w-full font-normal font-jost">
+          <Typography className="text-sm mt-0 lg:text-base w-full font-normal font-mulish">
             {description}
           </Typography>
           <div className="flex gap-1">
             <Rating unratedColor="black" className="mb-0" value={4} readonly />
           </div>
           <div className="flex flex-col">
-            <Typography className="text-lg font-jost mb-0">
+            <Typography className="text-lg font-mulish mb-0">
               {duration}
             </Typography>
-            <Typography className="text-lg font-jost mb-0">
+            <Typography className="text-lg font-mulish mb-0">
               {batch
                 ? (() => {
                     const days = JSON.parse(batch);
@@ -98,22 +98,22 @@ export function CardDefault({
                   })()
                 : 'N/A'}
             </Typography>
-            <Typography className="text-lg font-jost mb-0">
-              <Typography className="font-jost m-0 text-lg font-medium">
+            <Typography className="text-lg font-mulish mb-0">
+              <Typography className="font-mulish m-0 text-lg font-medium">
                 {schedule}
               </Typography>
             </Typography>
           </div>
           <div className="flex items-end gap-3">
-            <Typography className="text-xl lg:text-2xl mb-0 font-jost">
+            <Typography className="text-xl lg:text-2xl mb-0 font-mulish">
               {price}
             </Typography>
-            <Typography className="text-base lg:text-lg mb-0 line-through text-gray-800 font-jost">
+            <Typography className="text-base lg:text-lg mb-0 line-through text-gray-800 font-mulish">
               {originalPrice}
             </Typography>
           </div>
           {courseType !== 'video' && (
-            <Typography className="font-jost italic mb-0">
+            <Typography className="font-mulish italic mb-0">
               or 5 easy Installments{' '}
             </Typography>
           )}
@@ -129,18 +129,21 @@ export function CardDefault({
                 monthly payment plans.
               </p>
             )}
-            <Typography className="font-jost italic mb-0">
+            <Typography className="font-mulish italic mb-0">
               {paymentOptions}
             </Typography>
           </p>
           <Button
-            className="font-jost rounded-sm border-dotted border border-white hover:scale-110 transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base w-full"
+            className="font-mulish rounded-sm border-dotted border border-white hover:scale-110 transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base w-full"
             onClick={!isComingSoon ? handleExploreMore : undefined}
           >
             {!isComingSoon ? 'Enroll Now' : 'Coming Soon'}
           </Button>
-          <p style={{ textAlign: "center" }}>
-            For help: <a href="tel:+919810800988"><strong>+91 9810800988</strong></a>
+          <p style={{ textAlign: 'center' }}>
+            For help:{' '}
+            <a href="tel:+919810800988">
+              <strong>+91 9810800988</strong>
+            </a>
           </p>
         </div>
       </div>

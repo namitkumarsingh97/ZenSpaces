@@ -1,11 +1,3 @@
-// import RegisterEnroll3 from '@/components/RegisterEnroll3';
-// import React from 'react';
-
-// const page = () => {
-//   return <RegisterEnroll3 />;
-// };
-
-// export default page;
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -32,4 +24,3 @@ const page = () => {
 };
 
 export default page;
-

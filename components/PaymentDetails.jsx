@@ -86,7 +86,7 @@ const PaymentDetails = ({ userId, enrollmentProp }) => {
     const pageWidth = doc.internal.pageSize.getWidth();
     const textX = pageWidth / 2;
     const textY = 20;
-    doc.text('ASTROPATHWAYS', pageWidth / 2, 15, { align: 'center' });
+    doc.text('ZenSpaces', pageWidth / 2, 15, { align: 'center' });
 
     const invoiceY = textY + 5;
     doc.setFontSize(15);
@@ -203,7 +203,7 @@ const PaymentDetails = ({ userId, enrollmentProp }) => {
     const pageWidth = doc.internal.pageSize.getWidth();
     const textX = pageWidth / 2;
     const textY = 20;
-    doc.text('ASTROPATHWAYS', pageWidth / 2, 15, { align: 'center' });
+    doc.text('ZenSpaces', pageWidth / 2, 15, { align: 'center' });
 
     const invoiceY = textY + 5;
     doc.setFontSize(15);
@@ -302,7 +302,7 @@ const PaymentDetails = ({ userId, enrollmentProp }) => {
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(20);
     const pageWidth = doc.internal.pageSize.getWidth();
-    doc.text('ASTROPATHWAYS', pageWidth / 2, 15, { align: 'center' });
+    doc.text('ZenSpaces', pageWidth / 2, 15, { align: 'center' });
 
     doc.setFontSize(15);
     doc.text('EMI INVOICE', pageWidth / 2, 25, { align: 'center' });
@@ -371,33 +371,33 @@ const PaymentDetails = ({ userId, enrollmentProp }) => {
 
   return (
     <div>
-      <h2 className="md:text-xl text-lg font-jost font-medium">
+      <h2 className="md:text-xl text-lg font-mulish font-medium">
         Payment Details
       </h2>
       <hr className="my-5" />
       <div className="w-full overflow-x-auto">
-        <table className="table-auto text-center w-full text-base font-jost">
+        <table className="table-auto text-center w-full text-base font-mulish">
           <thead className="text-white">
             <tr className="border-gray-200">
-              <th className="md:p-3 p-2 rounded-l-xl bg-[#AF8C3E] font-jost font-medium">
+              <th className="md:p-3 p-2 rounded-l-xl bg-[#AF8C3E] font-mulish font-medium">
                 S.No
               </th>
-              {/*               <th className="md:p-3 p-2 bg-[#AF8C3E] font-jost font-medium">
+              {/*               <th className="md:p-3 p-2 bg-[#AF8C3E] font-mulish font-medium">
                 Transaction Id
               </th> */}
-              <th className="md:p-3 p-2 bg-[#AF8C3E] font-jost font-medium">
+              <th className="md:p-3 p-2 bg-[#AF8C3E] font-mulish font-medium">
                 Course Name
               </th>
-              <th className="md:p-3 p-2 bg-[#AF8C3E] font-jost font-medium">
+              <th className="md:p-3 p-2 bg-[#AF8C3E] font-mulish font-medium">
                 Date
               </th>
-              <th className="md:p-3 p-2 bg-[#AF8C3E] font-jost font-medium">
+              <th className="md:p-3 p-2 bg-[#AF8C3E] font-mulish font-medium">
                 Time
               </th>
-              <th className="md:p-3 p-2 bg-[#AF8C3E] font-jost font-medium">
+              <th className="md:p-3 p-2 bg-[#AF8C3E] font-mulish font-medium">
                 Status
               </th>
-              <th className="md:p-3 p-2 rounded-r-xl bg-[#AF8C3E] font-jost font-medium">
+              <th className="md:p-3 p-2 rounded-r-xl bg-[#AF8C3E] font-mulish font-medium">
                 Action
               </th>
             </tr>

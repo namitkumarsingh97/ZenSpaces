@@ -61,7 +61,7 @@ import { IoArrowBackCircleOutline } from 'react-icons/io5';
 import { PiStudentFill } from 'react-icons/pi';
 import Overview from '@/app/assets/Overview';
 import { BASE_URL } from '@/utils/apiClient';
-import CircularWithValueLabel from "@/app/assets/ProgressBar";
+import CircularWithValueLabel from '@/app/assets/ProgressBar';
 
 const AdminAccount = () => {
   const [selectedRadio, setSelectedRadio] = useState('This Month');
@@ -73,7 +73,6 @@ const AdminAccount = () => {
   const [loadingVideos, setLoadingVideos] = useState(false);
   const [classDates, setClassDates] = useState([]);
   const [uploadedVideos, setUploadedVideos] = useState({}); // Store upload status for each course
-
 
   const [activeTab, setActiveTab] = React.useState('dashboard');
   const dashboardValue = true;
@@ -100,7 +99,7 @@ const AdminAccount = () => {
   const [fromDate, setFromDate] = useState('');
   const [toDate, setToDate] = useState('');
   const [videoFile, setVideoFile] = useState(null);
-  const [videosFile,setVideosFile] = useState(null);
+  const [videosFile, setVideosFile] = useState(null);
   const [filterCustomerName, setFilterCustomerName] = useState('');
   const [filterDate, setFilterDate] = useState('');
   const [meetingDetails, setMeetingDetails] = useState(null);
@@ -113,8 +112,7 @@ const AdminAccount = () => {
   );
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loadingStates, setLoadingStates] = useState({});
-const [uploadProgress, setUploadProgress] = useState({});
-
+  const [uploadProgress, setUploadProgress] = useState({});
 
   const router = useRouter();
 
@@ -199,8 +197,8 @@ const [uploadProgress, setUploadProgress] = useState({});
         const day = startDate.getDay(); // 6 = Saturday, 0 = Sunday
         if (day === 6 || day === 0) {
           dates.push({
-            date: new Date(startDate).toLocaleDateString("en-US"),
-            dayName: startDate.toLocaleDateString("en-US", { weekday: "long" }),
+            date: new Date(startDate).toLocaleDateString('en-US'),
+            dayName: startDate.toLocaleDateString('en-US', { weekday: 'long' }),
           });
         }
         startDate.setDate(startDate.getDate() + 1);
@@ -234,7 +232,7 @@ const [uploadProgress, setUploadProgress] = useState({});
       } catch (error) {
         console.error('Error fetching courses:', error);
       }
-    }
+    };
     fetchCourses();
   }, [courseId]);
   const removeCourseFromList = (courseId) => {
@@ -436,7 +434,6 @@ const [uploadProgress, setUploadProgress] = useState({});
     }
   };
 
-  
   useEffect(() => {
     const fetchEnrollments = async () => {
       try {
@@ -566,7 +563,6 @@ const [uploadProgress, setUploadProgress] = useState({});
     setActiveTab('editcourse');
   };
 
-  
   const [selectedDays, setSelectedDays] = useState([]);
 
   useEffect(() => {
@@ -622,8 +618,6 @@ const [uploadProgress, setUploadProgress] = useState({});
     }
   }, [formData.thumbnail]);
 
-  
-
   const handleInstCheckChange = (selectedValue) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -631,7 +625,7 @@ const [uploadProgress, setUploadProgress] = useState({});
       durationType: selectedValue,
     }));
   };
-  
+
   useEffect(() => {
     if (formData.thumbnail) {
       setPreviewUrl(formData.thumbnail);
@@ -787,7 +781,6 @@ const [uploadProgress, setUploadProgress] = useState({});
     }
   };
 
-
   // ADMIN - CUSTOMER DATA EXPORT FUNCTIONALITY
   const exportToCSV = () => {
     const headers = [
@@ -908,7 +901,6 @@ const [uploadProgress, setUploadProgress] = useState({});
     setFilterDate('');
   }
 
-  
   const [dashboardStats, setDashboardStats] = useState({
     totalCourses: 0,
     totalCustomers: 0,
@@ -952,12 +944,9 @@ const [uploadProgress, setUploadProgress] = useState({});
   const handleVideoChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    
+
     setVideoFile(file); // Ensure the state updates before proceeding
   };
-  
-  
- 
 
   // const handlevideoUpload = async (courseId, classDate, index) => {
   //   console.log('getting course id inside video upload: ', courseId);
@@ -967,18 +956,18 @@ const [uploadProgress, setUploadProgress] = useState({});
   //     setError("Please select a video to upload.");
   //     return;
   //   }
-  
+
   //   if (!courseId) {
   //     setError("No course selected for uploading the video.");
   //     return;
   //   }
-  
+
   //   setLoading(true);
   //   setError("");
   //   setSuccessMessage("");
 
   //   console.log('loading', loading);
-  
+
   //   try {
   //     console.log("📤 Requesting pre-signed URL...");
   //     const { data } = await axios.post(`${BASE_URL}/api/uploadVideo`, {
@@ -986,17 +975,17 @@ const [uploadProgress, setUploadProgress] = useState({});
   //       courseId,
   //       classDate
   //     });
-  
+
   //     if (!data || !data.uploadUrl) {
   //       throw new Error("Failed to get a pre-signed URL from the server.");
   //     }
-  
+
   //     console.log("✅ Pre-signed URL received:", data.uploadUrl);
   //     let uploadSuccess = false;
   //     for (let attempt = 1; attempt <= 3; attempt++) {
   //       try {
   //         console.log(`📡 Attempt ${attempt}: Uploading to S3...`);
-  
+
   //         const uploadResponse = await fetch(data.uploadUrl, {
   //           method: "PUT",
   //           headers: {
@@ -1004,11 +993,11 @@ const [uploadProgress, setUploadProgress] = useState({});
   //           },
   //           body: videoFile,
   //         });
-  
+
   //         if (!uploadResponse.ok) {
   //           throw new Error(`S3 Upload Error (Attempt ${attempt}): ${await uploadResponse.text()}`);
   //         }
-  
+
   //         console.log("🎉 Video uploaded successfully on attempt:", attempt);
   //         setUploadedVideos((prev) => ({ ...prev, [index]: true }));
 
@@ -1018,21 +1007,21 @@ const [uploadProgress, setUploadProgress] = useState({});
   //           ...prev,
   //           [classDate]: [data.videoUrl], // Replace old URL with the new one
   //         }));
-      
+
   //         setUploadedVideos((prev) => ({ ...prev, [index]: true }));
-      
+
   //         uploadSuccess = true;
-  //         break; 
+  //         break;
   //       } catch (err) {
   //         console.error("Upload failed:", err.message);
-  //         if (attempt === 3) throw err; 
+  //         if (attempt === 3) throw err;
   //       }
   //     }
-  
+
   //     if (!uploadSuccess) {
   //       throw new Error("Video upload failed after multiple attempts.");
   //     }
-  
+
   //     setSuccessMessage("Video uploaded successfully!");
   //   } catch (err) {
   //     console.error("Error uploading video:", err.message);
@@ -1043,65 +1032,70 @@ const [uploadProgress, setUploadProgress] = useState({});
   // };
   const handlevideoUpload = async (courseId, classDate, index) => {
     if (!videoFile) {
-      setError("Please select a video to upload.");
+      setError('Please select a video to upload.');
       return;
     }
-  
+
     if (!courseId) {
-      setError("No course selected for uploading the video.");
+      setError('No course selected for uploading the video.');
       return;
     }
-  
-  
+
     setLoadingStates((prev) => ({ ...prev, [classDate]: true }));
     setUploadProgress((prev) => ({ ...prev, [classDate]: 0 }));
-  
+
     try {
       const { data } = await axios.post(`${BASE_URL}/api/uploadVideo`, {
         fileType: videoFile.type,
         courseId,
         classDate,
       });
-  
+
       if (!data || !data.uploadUrl) {
-        throw new Error("Failed to get a pre-signed URL from the server.");
+        throw new Error('Failed to get a pre-signed URL from the server.');
       }
-  
+
       await new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
-        xhr.open("PUT", data.uploadUrl, true);
-        xhr.setRequestHeader("Content-Type", videoFile.type);
-  
+        xhr.open('PUT', data.uploadUrl, true);
+        xhr.setRequestHeader('Content-Type', videoFile.type);
+
         // Track upload progress
         xhr.upload.onprogress = (event) => {
           if (event.lengthComputable) {
-            const percentComplete = Math.round((event.loaded / event.total) * 100);
-            setUploadProgress((prev) => ({ ...prev, [classDate]: percentComplete }));
+            const percentComplete = Math.round(
+              (event.loaded / event.total) * 100,
+            );
+            setUploadProgress((prev) => ({
+              ...prev,
+              [classDate]: percentComplete,
+            }));
           }
         };
-  
+
         xhr.onload = () => {
           if (xhr.status === 200) {
             setUploadedVideos((prev) => ({ ...prev, [classDate]: true }));
             setVideoUrls((prev) => ({ ...prev, [classDate]: [data.videoUrl] }));
-            setSuccessMessage("Video uploaded successfully!");
+            setSuccessMessage('Video uploaded successfully!');
             resolve();
           } else {
             reject(new Error(`Upload failed with status ${xhr.status}`));
           }
         };
-  
-        xhr.onerror = () => reject(new Error("Upload failed due to a network error."));
+
+        xhr.onerror = () =>
+          reject(new Error('Upload failed due to a network error.'));
         xhr.send(videoFile);
       });
     } catch (err) {
-      console.error("Error uploading video:", err.message);
-      setError(err.message || "Failed to upload video. Please try again.");
+      console.error('Error uploading video:', err.message);
+      setError(err.message || 'Failed to upload video. Please try again.');
     } finally {
-      setLoadingStates((prev) => ({ ...prev, [classDate]: false })); 
+      setLoadingStates((prev) => ({ ...prev, [classDate]: false }));
     }
   };
-  
+
   const handleUploadIconClick = (course) => {
     if (!course) {
       setError('No course selected for uploading.');
@@ -1272,7 +1266,7 @@ const [uploadProgress, setUploadProgress] = useState({});
     const pageWidth = doc.internal.pageSize.getWidth();
     const textX = pageWidth / 2;
     const textY = 20;
-    doc.text('ASTROPATHWAYS', pageWidth / 2, 15, { align: 'center' });
+    doc.text('ZenSpaces', pageWidth / 2, 15, { align: 'center' });
 
     const invoiceY = textY + 5;
     doc.setFontSize(15);
@@ -1366,7 +1360,7 @@ const [uploadProgress, setUploadProgress] = useState({});
     const pageWidth = doc.internal.pageSize.getWidth();
     const textX = pageWidth / 2;
     const textY = 20;
-    doc.text('ASTROPATHWAYS', pageWidth / 2, 15, { align: 'center' });
+    doc.text('ZenSpaces', pageWidth / 2, 15, { align: 'center' });
 
     const invoiceY = textY + 5;
     doc.setFontSize(15);
@@ -1448,7 +1442,7 @@ const [uploadProgress, setUploadProgress] = useState({});
 
     doc.setFontSize(8);
     doc.text(
-      'This is a Computer Generated Invoice.',    
+      'This is a Computer Generated Invoice.',
       pageWidth / 2,
       doc.internal.pageSize.height - 10,
       { align: 'center' },
@@ -1468,23 +1462,24 @@ const [uploadProgress, setUploadProgress] = useState({});
   const videoCourseCollection = Array.isArray(activeCourse?.videoUrl)
     ? activeCourse.videoUrl
     : [];
- 
+
   const fetchVideos = async (courseId, classDate) => {
     try {
-      const response = await fetch(`${BASE_URL}/api/getVideos?courseId=${courseId}&classDate=${classDate}`);
+      const response = await fetch(
+        `${BASE_URL}/api/getVideos?courseId=${courseId}&classDate=${classDate}`,
+      );
       const data = await response.json();
-  
+
       if (data.videos) {
         setVideoUrls((prev) => ({
           ...prev,
-          [classDate]: data.videos, 
+          [classDate]: data.videos,
         }));
       }
     } catch (error) {
-      console.error("Error fetching videos:", error);
+      console.error('Error fetching videos:', error);
     }
   };
-  
 
   return (
     <div>
@@ -1520,7 +1515,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                 </div>
                 <div className="col-span-3 hidden lg:flex">
                   <Card className="bg-gray-50 border text-black flex flex-col h-full w-full overflow-hidden rounded-xl shadow-2xl p-1">
-                    <List className="font-jost text-gray-900 text-[16px]">
+                    <List className="font-mulish text-gray-900 text-[16px]">
                       <ListItem onClick={() => setActiveTab('dashboard')}>
                         <ListItemPrefix>
                           <UserCircleIcon className="h-5 w-5 text-[#AF8C3E]" />
@@ -1578,7 +1573,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                          localStorage.removeItem("enrollmentToken");
 
                           window.location.reload();
-                          router.push("https://astropathways.com/");
+                          router.push("https://ZenSpaces.com/");
                         }}
                       >
                         <ListItemPrefix>
@@ -1594,7 +1589,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'myprofile' && <MyProfile />}
                     {activeTab === 'mycourses' && (
                       <div className="h-full overflow-y-auto">
-                        <h2 className="md:text-xl text-lg font-jost font-medium">
+                        <h2 className="md:text-xl text-lg font-mulish font-medium">
                           My Courses
                         </h2>
                         <hr className="my-5"></hr>
@@ -1610,40 +1605,40 @@ const [uploadProgress, setUploadProgress] = useState({});
                             alt="courseImg"
                           />
                           <div className="gap-2 p-5 flex flex-col">
-                            <Typography className="font-jost text-center font-semibold text-2xl">
+                            <Typography className="font-mulish text-center font-semibold text-2xl">
                               Lal Kitab Course
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Start Date : 01/01/2025
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Time : 06.00 To 07.00 P.M.
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Duration : 4 Months
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Days : Saturday & Sunday
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Platform : Google Meet
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Instructor : Kuldeep Meena
                             </Typography>
                           </div>
                           <div className="gap-2 px-5 py-10 flex justify-between  flex-col">
-                            <Typography className="font-jost text-center font-normal text-xl">
+                            <Typography className="font-mulish text-center font-normal text-xl">
                               Total Fees : INR 21000/-
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-xl">
+                            <Typography className="font-mulish text-center font-normal text-xl">
                               Registeration Paid : INR 2100/-
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-xl">
+                            <Typography className="font-mulish text-center font-normal text-xl">
                               Remaining : INR 18000/-
                             </Typography>
                             <div className="flex items-center flex-col gap-2">
-                              <Button className="font-jost w-full rounded-lg border opacity-100 border-white transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-sm max-w-[170px]">
+                              <Button className="font-mulish w-full rounded-lg border opacity-100 border-white transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-sm max-w-[170px]">
                                 Pay Now
                               </Button>
                             </div>
@@ -1658,35 +1653,35 @@ const [uploadProgress, setUploadProgress] = useState({});
                             alt="courseImg"
                           />
                           <div className="gap-2 p-5 flex flex-col">
-                            <Typography className="font-jost text-center font-semibold text-2xl">
+                            <Typography className="font-mulish text-center font-semibold text-2xl">
                               Lal Kitab Course
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Start Date : 01/01/2025
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Time : 06.00 To 07.00 P.M.
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Duration : 4 Months
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Days : Saturday & Sunday
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Platform : Google Meet
                             </Typography>
-                            <Typography className="font-jost text-center font-normal text-base">
+                            <Typography className="font-mulish text-center font-normal text-base">
                               Instructor : Kuldeep Meena
                             </Typography>
                           </div>
                           <div className="gap-2 px-5 py-10 flex justify-between  flex-col">
-                            <Typography className="font-jost text-center font-normal text-xl">
+                            <Typography className="font-mulish text-center font-normal text-xl">
                               Total Fees Paid : INR 21000/-
                             </Typography>
                             <div className="flex items-center flex-col gap-2">
                               <Button
-                                className="font-jost w-full rounded-lg border opacity-100 border-white transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-sm max-w-[170px]"
+                                className="font-mulish w-full rounded-lg border opacity-100 border-white transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-sm max-w-[170px]"
                                 onClick={() => {
                                   setActiveTab('viewcoursedetails');
                                 }}
@@ -1700,26 +1695,26 @@ const [uploadProgress, setUploadProgress] = useState({});
                     )}
                     {activeTab === 'viewcoursedetails' && (
                       <div>
-                        <h2 className="md:text-xl text-lg font-jost font-medium">
+                        <h2 className="md:text-xl text-lg font-mulish font-medium">
                           Course Details
                         </h2>
                         <hr className="my-5"></hr>
-                        <table class="table-auto text-center w-full text-base font-jost">
+                        <table class="table-auto text-center w-full text-base font-mulish">
                           <thead className=" text-white">
                             <tr className=" border-gray-200">
-                              <th className="md:p-3 p-2 rounded-l-xl bg-[#AF8C3E] font-jost font-medium">
+                              <th className="md:p-3 p-2 rounded-l-xl bg-[#AF8C3E] font-mulish font-medium">
                                 S.No
                               </th>
-                              <th className="md:p-3 p-2  bg-[#AF8C3E] font-jost font-medium">
+                              <th className="md:p-3 p-2  bg-[#AF8C3E] font-mulish font-medium">
                                 Date
                               </th>
-                              <th className="md:p-3 p-2  bg-[#AF8C3E] font-jost font-medium">
+                              <th className="md:p-3 p-2  bg-[#AF8C3E] font-mulish font-medium">
                                 Time
                               </th>
-                              <th className="md:p-3 p-2  bg-[#AF8C3E] font-jost font-medium">
+                              <th className="md:p-3 p-2  bg-[#AF8C3E] font-mulish font-medium">
                                 Link
                               </th>
-                              <th className="md:p-3 p-2 rounded-r-xl bg-[#AF8C3E] font-jost font-medium">
+                              <th className="md:p-3 p-2 rounded-r-xl bg-[#AF8C3E] font-mulish font-medium">
                                 Action
                               </th>
                             </tr>
@@ -1737,7 +1732,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               <td className="p-2 md:p-3">
                                 <Button
                                   size="small"
-                                  className="bg-[#AF8C3E] font-jost"
+                                  className="bg-[#AF8C3E] font-mulish"
                                 >
                                   Join
                                 </Button>
@@ -1755,7 +1750,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               <td className="p-2 md:p-3">
                                 <Button
                                   size="small"
-                                  className="bg-[#AF8C3E] font-jost"
+                                  className="bg-[#AF8C3E] font-mulish"
                                 >
                                   View
                                 </Button>
@@ -1770,7 +1765,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'dashboard' && [
                       dashboardValue === true ? (
                         <div>
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Dashboard
                           </h2>
                           <hr className="my-5"></hr>
@@ -1778,10 +1773,10 @@ const [uploadProgress, setUploadProgress] = useState({});
                             <div className="bg-[#AF8C3E] shadow-xl rounded-md p-5 col-span-12 md:col-span-6 xl:col-span-6">
                               <div className="flex justify-between items-center">
                                 <div>
-                                  <Typography className="font-jost text-white font-medium">
+                                  <Typography className="font-mulish text-white font-medium">
                                     Total Courses
                                   </Typography>
-                                  <Typography className="font-jost text-white text-2xl">
+                                  <Typography className="font-mulish text-white text-2xl">
                                     {dashboardStats.totalCourses}
                                   </Typography>
                                 </div>
@@ -1793,10 +1788,10 @@ const [uploadProgress, setUploadProgress] = useState({});
                             <div className="bg-[#AF8C3E] shadow-xl rounded-md p-5 col-span-12 md:col-span-6 xl:col-span-6">
                               <div className="flex justify-between items-center">
                                 <div>
-                                  <Typography className="font-jost text-white font-medium">
+                                  <Typography className="font-mulish text-white font-medium">
                                     Total Customers
                                   </Typography>
-                                  <Typography className="font-jost text-white text-2xl">
+                                  <Typography className="font-mulish text-white text-2xl">
                                     {dashboardStats.totalCustomers}
                                   </Typography>
                                 </div>
@@ -1808,10 +1803,10 @@ const [uploadProgress, setUploadProgress] = useState({});
                             <div className="bg-[#AF8C3E] shadow-xl rounded-md p-5 col-span-12 md:col-span-6 xl:col-span-6">
                               <div className="flex justify-between items-center">
                                 <div>
-                                  <Typography className="font-jost text-white font-medium">
+                                  <Typography className="font-mulish text-white font-medium">
                                     Total Course Bookings
                                   </Typography>
-                                  <Typography className="font-jost text-white text-2xl">
+                                  <Typography className="font-mulish text-white text-2xl">
                                     {dashboardStats.totalCourseBookings}
                                   </Typography>
                                 </div>
@@ -1823,10 +1818,10 @@ const [uploadProgress, setUploadProgress] = useState({});
                             <div className="bg-[#AF8C3E] shadow-xl rounded-md p-5 col-span-12 md:col-span-6 xl:col-span-6">
                               <div className="flex justify-between items-center">
                                 <div>
-                                  <Typography className="font-jost text-white font-medium">
+                                  <Typography className="font-mulish text-white font-medium">
                                     Total Sales
                                   </Typography>
-                                  <Typography className="font-jost text-white text-2xl">
+                                  <Typography className="font-mulish text-white text-2xl">
                                     {dashboardStats.totalSales.toLocaleString(
                                       'en-IN',
                                     )}
@@ -1844,7 +1839,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                         </div>
                       ) : (
                         <div>
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Dashboard
                           </h2>
                           <hr className="my-5"></hr>
@@ -1855,7 +1850,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               width={200}
                               alt="NoSitesImage"
                             />
-                            <Typography className="text-2xl font-jost">
+                            <Typography className="text-2xl font-mulish">
                               There is nothing to show in the Dashboard
                             </Typography>
                           </div>
@@ -1865,13 +1860,13 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'coursemanagement' && (
                       <div>
                         <div className="flex items-center justify-between">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Courses
                           </h2>
 
                           <div className="flex gap-2">
                             <Button
-                              className="font-jost bg-[#AF8C3E]"
+                              className="font-mulish bg-[#AF8C3E]"
                               onClick={() => {
                                 setActiveTab('addcourse');
                               }}
@@ -1927,7 +1922,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                             <div className="flex gap-2 mt-3">
                               <Button
                                 onClick={handleClearFilters}
-                                className="capitalize font-jost font-normal shadow-xl rounded bg-[#AF8C3E]"
+                                className="capitalize font-mulish font-normal shadow-xl rounded bg-[#AF8C3E]"
                               >
                                 Clear
                               </Button>
@@ -1935,32 +1930,32 @@ const [uploadProgress, setUploadProgress] = useState({});
                           </div>
                         </div>
                         <div className="overflow-x-auto mt-5">
-                          <table className="table-auto text-center md:text-sm w-full text-xs font-jost">
+                          <table className="table-auto text-center md:text-sm w-full text-xs font-mulish">
                             <thead className="text-white">
                               <tr className="border-gray-200">
-                                <th className="p-3 rounded-l-xl bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3 rounded-l-xl bg-[#AF8C3E] font-mulish font-medium">
                                   S.No.
                                 </th>
                                 {/* <th className="px-4 py-2 border">S.No</th> */}
-                                <th className="p-3 bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3 bg-[#AF8C3E] font-mulish font-medium">
                                   Course Name
                                 </th>
-                                <th className="p-3 bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3 bg-[#AF8C3E] font-mulish font-medium">
                                   Course Type
                                 </th>
-                                <th className="p-3 bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3 bg-[#AF8C3E] font-mulish font-medium">
                                   Start Date
                                 </th>
-                                <th className="p-3 bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3 bg-[#AF8C3E] font-mulish font-medium">
                                   Course Day
                                 </th>
-                                <th className="p-3 bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3 bg-[#AF8C3E] font-mulish font-medium">
                                   Duration
                                 </th>
-                                <th className="p-3 bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3 bg-[#AF8C3E] font-mulish font-medium">
                                   Timings
                                 </th>
-                                <th className="p-3 rounded-r-xl bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3 rounded-r-xl bg-[#AF8C3E] font-mulish font-medium">
                                   Action
                                 </th>
                               </tr>
@@ -2063,12 +2058,12 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'enrollments' && (
                       <div>
                         <div className="flex items-center justify-between">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Enrollments
                           </h2>
                           <div className="flex gap-2">
                             <Button
-                              className="font-jost bg-[#AF8C3E]"
+                              className="font-mulish bg-[#AF8C3E]"
                               onClick={() => {
                                 setActiveTab('addCustomerEnrollment');
                               }}
@@ -2076,7 +2071,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               ADD
                             </Button>
                             <Button
-                              className="font-jost bg-[#AF8C3E]"
+                              className="font-mulish bg-[#AF8C3E]"
                               onClick={() =>
                                 exportToCSV2(filteredEnrollData, 'enrollments')
                               }
@@ -2131,11 +2126,11 @@ const [uploadProgress, setUploadProgress] = useState({});
                               />
                             </div>
                             <div className="flex gap-2 mt-3">
-                              {/* <Button className="capitalize font-jost font-normal text-xs shadow-xl rounded bg-[#AF8C3E] px-3 py-2 lg:px-1 lg:py-1 2xl:p-2 ">
+                              {/* <Button className="capitalize font-mulish font-normal text-xs shadow-xl rounded bg-[#AF8C3E] px-3 py-2 lg:px-1 lg:py-1 2xl:p-2 ">
                               Filters
                             </Button> */}
                               <Button
-                                className="capitalize font-jost font-normal shadow-xl rounded bg-[#AF8C3E]"
+                                className="capitalize font-mulish font-normal shadow-xl rounded bg-[#AF8C3E]"
                                 onClick={handleClearFilters}
                               >
                                 Clear
@@ -2144,34 +2139,34 @@ const [uploadProgress, setUploadProgress] = useState({});
                           </div>
                         </div>
                         <div className="overflow-x-auto mt-5">
-                          <table class="table-auto text-center md:text-sm w-full text-xs font-jost">
+                          <table class="table-auto text-center md:text-sm w-full text-xs font-mulish">
                             <thead className=" text-white">
                               <tr className=" border-gray-200">
-                                <th className="p-3 rounded-l-xl bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3 rounded-l-xl bg-[#AF8C3E] font-mulish font-medium">
                                   S.No.
                                 </th>
-                                <th className="p-3  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  bg-[#AF8C3E] font-mulish font-medium">
                                   Course Name
                                 </th>
-                                <th className="p-3  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  bg-[#AF8C3E] font-mulish font-medium">
                                   Course Type
                                 </th>
-                                <th className="p-3  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  bg-[#AF8C3E] font-mulish font-medium">
                                   Customer Name
                                 </th>
-                                <th className="p-3  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  bg-[#AF8C3E] font-mulish font-medium">
                                   Slot
                                 </th>
-                                <th className="p-3  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  bg-[#AF8C3E] font-mulish font-medium">
                                   Enrollment Date
                                 </th>
-                                <th className="p-3  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  bg-[#AF8C3E] font-mulish font-medium">
                                   Amount Paid
                                 </th>
-                                <th className="p-3  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  bg-[#AF8C3E] font-mulish font-medium">
                                   Status
                                 </th>
-                                <th className="p-3  rounded-r-xl bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  rounded-r-xl bg-[#AF8C3E] font-mulish font-medium">
                                   Action
                                 </th>
                               </tr>
@@ -2236,7 +2231,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'addcourse' && (
                       <div>
                         <div className="flex justify-between items-center">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Add Course
                           </h2>
                           <IoArrowBackCircleOutline
@@ -2249,7 +2244,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                         </div>
                         <hr className="my-5" />
                         <div className="flex flex-col justify-center">
-                          <h1 className="block antialiased tracking-normal font-jost text-lg font-medium leading-snug mb-5">
+                          <h1 className="block antialiased tracking-normal font-mulish text-lg font-medium leading-snug mb-5">
                             Add Course Information
                           </h1>
                           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-5">
@@ -2326,7 +2321,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               />
                             </div>
                             <div className="col-span-1 flex justify-center items-center w-full gap-2 sm:col-span-2 lg:col-span-3">
-                              <Typography className="font-jost font-medium text-xl">
+                              <Typography className="font-mulish font-medium text-xl">
                                 Choose Days
                               </Typography>
                             </div>
@@ -2354,7 +2349,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               ))}
                             </div>
                             <div className="col-span-1 flex justify-center items-center w-full gap-2 sm:col-span-2 lg:col-span-3">
-                              <Typography className="font-jost font-medium text-xl">
+                              <Typography className="font-mulish font-medium text-xl">
                                 Choose Slot
                               </Typography>
                             </div>
@@ -2365,7 +2360,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                                 onChange={handleTimeChange}
                                 label="Start Time"
                               />
-                              <Typography className="font-jost font-normal text-sm">
+                              <Typography className="font-mulish font-normal text-sm">
                                 To
                               </Typography>
                               <Input
@@ -2376,7 +2371,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               />
                             </div>
                             <div className="col-span-1 sm:col-span-2 lg:col-span-3">
-                              <Typography className="font-jost font-medium text-xl">
+                              <Typography className="font-mulish font-medium text-xl">
                                 Course Type
                               </Typography>
                               <div className="flex justify-start gap-5 mt-2">
@@ -2405,12 +2400,12 @@ const [uploadProgress, setUploadProgress] = useState({});
                               </div>
                             </div>
                             <div className="col-span-1 flex  items-center w-full  sm:col-span-2 lg:col-span-3">
-                              <Typography className="font-jost m-0 font-medium text-xl">
+                              <Typography className="font-mulish m-0 font-medium text-xl">
                                 Select Thumbnail
                               </Typography>
                             </div>
                             <div className="col-span-1">
-                              <Typography className="font-jost font-semibold">
+                              <Typography className="font-mulish font-semibold">
                                 <input
                                   type="file"
                                   accept="image/*"
@@ -2427,7 +2422,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                           <div className="flex justify-end mt-2">
                             <Button
                               onClick={handleSubmit}
-                              className="font-jost bg-[#AF8C3E]"
+                              className="font-mulish bg-[#AF8C3E]"
                               size="lg"
                             >
                               Proceed
@@ -2439,7 +2434,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'addcourse1' && (
                       <div>
                         <div className="flex justify-between items-center">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Add Course
                           </h2>
                           <IoArrowBackCircleOutline
@@ -2451,7 +2446,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                           />
                         </div>
                         <hr className="my-5" />
-                        <h2 className="md:text-xl text-lg font-jost font-medium">
+                        <h2 className="md:text-xl text-lg font-mulish font-medium">
                           Add Overview Details
                         </h2>
                         <TextEditor
@@ -2464,7 +2459,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'addcourse2' && (
                       <div>
                         <div className="flex justify-between items-center">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Add Course
                           </h2>
                           <IoArrowBackCircleOutline
@@ -2476,7 +2471,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                           />
                         </div>
                         <hr className="my-5" />
-                        <h2 className="md:text-xl text-lg font-jost font-medium">
+                        <h2 className="md:text-xl text-lg font-mulish font-medium">
                           Add Syllabus Details
                         </h2>
                         <TextsEditor
@@ -2502,7 +2497,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'editcourse' && (
                       <div>
                         <div className="flex justify-between items-center">
-                          <h2 className="md:text-xl text-lg font-jost font-medium">
+                          <h2 className="md:text-xl text-lg font-mulish font-medium">
                             Edit Course
                           </h2>
                           <IoArrowBackCircleOutline
@@ -2515,7 +2510,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                         </div>
                         <hr className="my-5"></hr>
                         <div className=" flex flex-col justify-center">
-                          <h1 className="block antialiased tracking-normal font-jost text-lg font-medium leading-snug mb-5">
+                          <h1 className="block antialiased tracking-normal font-mulish text-lg font-medium leading-snug mb-5">
                             Edit Course Information
                           </h1>
                           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-5">
@@ -2605,7 +2600,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               />
                             </div>
                             <div className="col-span-1 flex justify-center items-center w-full gap-2 sm:col-span-2 lg:col-span-3">
-                              <Typography className="font-jost font-medium text-xl">
+                              <Typography className="font-mulish font-medium text-xl">
                                 Choose Days
                               </Typography>
                             </div>
@@ -2615,7 +2610,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                                   key={day}
                                   className="flex flex-col gap-1 justify-center"
                                 >
-                                  <Typography className="font-jost font-normal text-sm">
+                                  <Typography className="font-mulish font-normal text-sm">
                                     {day}
                                   </Typography>
                                   <Checkbox
@@ -2627,7 +2622,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                             </div>
 
                             <div className="col-span-1 flex justify-center items-center w-full gap-2 sm:col-span-2 lg:col-span-3">
-                              <Typography className="font-jost font-medium text-xl">
+                              <Typography className="font-mulish font-medium text-xl">
                                 Choose Slot
                               </Typography>
                             </div>
@@ -2648,7 +2643,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                                 }
                                 label="Start Time"
                               />
-                              <Typography className="font-jost font-normal text-sm">
+                              <Typography className="font-mulish font-normal text-sm">
                                 To
                               </Typography>
                               <Input
@@ -2669,7 +2664,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                             </div>
 
                             <div className="col-span-1">
-                              <Typography className="font-jost font-semibold">
+                              <Typography className="font-mulish font-semibold">
                                 Edit Course Thumbnail
                               </Typography>
                               <div className="flex mt-5 gap-5">
@@ -2693,7 +2688,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                                     onChange={handleThumbnailFileChange}
                                   />
                                   <Button
-                                    className="font-jost bg-[#AF8C3E]"
+                                    className="font-mulish bg-[#AF8C3E]"
                                     size="sm"
                                     onClick={() =>
                                       document
@@ -2704,7 +2699,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                                     Choose File
                                   </Button>
                                   <Button
-                                    className="font-jost bg-[#AF8C3E]"
+                                    className="font-mulish bg-[#AF8C3E]"
                                     size="sm"
                                     onClick={handleUpload}
                                   >
@@ -2718,8 +2713,8 @@ const [uploadProgress, setUploadProgress] = useState({});
                             <Button
                               onClick={async () => {
                                 try {
-                                  await handleeditSubmit(formData._id); 
-                                  setActiveTab('editcourse1'); 
+                                  await handleeditSubmit(formData._id);
+                                  setActiveTab('editcourse1');
                                 } catch (error) {
                                   console.error(
                                     'Error updating course:',
@@ -2727,7 +2722,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                                   );
                                 }
                               }}
-                              className="font-jost bg-[#AF8C3E]"
+                              className="font-mulish bg-[#AF8C3E]"
                               size="lg"
                             >
                               Proceed
@@ -2739,7 +2734,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'editcourse1' && (
                       <div>
                         <div className="flex justify-between items-center">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Edit Course
                           </h2>
                           <IoArrowBackCircleOutline
@@ -2751,7 +2746,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                           />
                         </div>
                         <hr className="my-5"></hr>
-                        <h2 className="md:text-xl text-lg font-jost font-medium">
+                        <h2 className="md:text-xl text-lg font-mulish font-medium">
                           Edit Overview Details
                         </h2>
                         <TextEditor
@@ -2765,7 +2760,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                             onClick={() => {
                               setActiveTab('editcourse2');
                             }}
-                            className="font-jost bg-[#AF8C3E]"
+                            className="font-mulish bg-[#AF8C3E]"
                             size="lg"
                           >
                             Proceed
@@ -2776,7 +2771,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'editcourse2' && (
                       <div>
                         <div className="flex justify-between items-center">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Edit Course
                           </h2>
                           <IoArrowBackCircleOutline
@@ -2788,7 +2783,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                           />
                         </div>
                         <hr className="my-5"></hr>
-                        <h2 className="md:text-xl text-lg font-jost font-medium">
+                        <h2 className="md:text-xl text-lg font-mulish font-medium">
                           Edit Syllabus Details
                         </h2>
                         <TextsEditor
@@ -2800,7 +2795,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                         />
                         {/* 
                         <div className="flex justify-end mt-2">
-                          <Button className="font-jost bg-[#AF8C3E]" size="lg">
+                          <Button className="font-mulish bg-[#AF8C3E]" size="lg">
                             Submit
                           </Button>
                         </div> */}
@@ -2809,12 +2804,12 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'customers' && (
                       <div>
                         <div className="flex items-center justify-between">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Customers
                           </h2>
                           <div className="flex gap-2">
                             <Button
-                              className="font-jost bg-[#AF8C3E]"
+                              className="font-mulish bg-[#AF8C3E]"
                               onClick={() => {
                                 setActiveTab('addcustomer');
                               }}
@@ -2822,7 +2817,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               ADD
                             </Button>
                             <Button
-                              className="font-jost bg-[#AF8C3E]"
+                              className="font-mulish bg-[#AF8C3E]"
                               onClick={exportToCSV}
                             >
                               EXPORT
@@ -2853,11 +2848,11 @@ const [uploadProgress, setUploadProgress] = useState({});
                           </div>
 
                           <div className="flex gap-2">
-                            {/* <Button className="capitalize font-jost font-normal text-xs shadow-xl rounded bg-[#AF8C3E] px-3 py-2 lg:px-1 lg:py-1 2xl:p-2 ">
+                            {/* <Button className="capitalize font-mulish font-normal text-xs shadow-xl rounded bg-[#AF8C3E] px-3 py-2 lg:px-1 lg:py-1 2xl:p-2 ">
                               Filters
                             </Button> */}
                             <Button
-                              className="capitalize font-jost font-normal shadow-xl rounded bg-[#AF8C3E]"
+                              className="capitalize font-mulish font-normal shadow-xl rounded bg-[#AF8C3E]"
                               onClick={handleClearFilters}
                             >
                               Clear
@@ -2865,25 +2860,25 @@ const [uploadProgress, setUploadProgress] = useState({});
                           </div>
                         </div>
                         <div className="overflow-x-auto mt-5">
-                          <table class="table-auto text-center md:text-sm w-full text-xs font-jost">
+                          <table class="table-auto text-center md:text-sm w-full text-xs font-mulish">
                             <thead className=" text-white">
                               <tr className=" border-gray-200">
-                                <th className="p-3 rounded-l-xl bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3 rounded-l-xl bg-[#AF8C3E] font-mulish font-medium">
                                   S.No.
                                 </th>
-                                <th className="p-3  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  bg-[#AF8C3E] font-mulish font-medium">
                                   Customer Name
                                 </th>
-                                <th className="p-3  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  bg-[#AF8C3E] font-mulish font-medium">
                                   Email
                                 </th>
-                                <th className="p-3  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  bg-[#AF8C3E] font-mulish font-medium">
                                   Registration Date
                                 </th>
-                                <th className="p-3  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  bg-[#AF8C3E] font-mulish font-medium">
                                   No. Of Courses Enrolled
                                 </th>
-                                <th className="p-3  rounded-r-xl bg-[#AF8C3E] font-jost font-medium">
+                                <th className="p-3  rounded-r-xl bg-[#AF8C3E] font-mulish font-medium">
                                   Action
                                 </th>
                               </tr>
@@ -2935,12 +2930,12 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'payments' && (
                       <div>
                         <div className="flex items-center justify-between">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Payments
                           </h2>
                           <div className="flex gap-2">
                             <Button
-                              className="font-jost bg-[#AF8C3E]"
+                              className="font-mulish bg-[#AF8C3E]"
                               onClick={exportToCSV3}
                             >
                               EXPORT
@@ -2969,7 +2964,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                             </div>
                           </div>
                           <Button
-                            className="capitalize mt-3 font-jost font-normal shadow-xl rounded bg-[#AF8C3E]  "
+                            className="capitalize mt-3 font-mulish font-normal shadow-xl rounded bg-[#AF8C3E]  "
                             onClick={handleClearFilters}
                           >
                             Clear
@@ -2977,31 +2972,31 @@ const [uploadProgress, setUploadProgress] = useState({});
                         </div>
                         <br />
                         <div className="overflow-x-auto mt-5">
-                          <table class="table-auto text-center w-full text-base font-jost">
+                          <table class="table-auto text-center w-full text-base font-mulish">
                             <thead className=" text-white">
                               <tr className=" border-gray-200">
-                                <th className="md:p-3 p-2 rounded-l-xl bg-[#AF8C3E] font-jost font-medium">
+                                <th className="md:p-3 p-2 rounded-l-xl bg-[#AF8C3E] font-mulish font-medium">
                                   S.No.
                                 </th>
-                                {/*                                 <th className="md:p-3 p-2  bg-[#AF8C3E] font-jost font-medium">
+                                {/*                                 <th className="md:p-3 p-2  bg-[#AF8C3E] font-mulish font-medium">
                                   Transaction Id
                                 </th> */}
-                                <th className="md:p-3 p-2  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="md:p-3 p-2  bg-[#AF8C3E] font-mulish font-medium">
                                   Course Name
                                 </th>
-                                <th className="md:p-3 p-2  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="md:p-3 p-2  bg-[#AF8C3E] font-mulish font-medium">
                                   Customer Name
                                 </th>
-                                <th className="md:p-3 p-2  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="md:p-3 p-2  bg-[#AF8C3E] font-mulish font-medium">
                                   Date
                                 </th>
-                                <th className="md:p-3 p-2  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="md:p-3 p-2  bg-[#AF8C3E] font-mulish font-medium">
                                   Time
                                 </th>
-                                <th className="md:p-3 p-2  bg-[#AF8C3E] font-jost font-medium">
+                                <th className="md:p-3 p-2  bg-[#AF8C3E] font-mulish font-medium">
                                   Status
                                 </th>
-                                <th className="md:p-3 p-2 rounded-r-xl bg-[#AF8C3E] font-jost font-medium">
+                                <th className="md:p-3 p-2 rounded-r-xl bg-[#AF8C3E] font-mulish font-medium">
                                   Action
                                 </th>
                               </tr>
@@ -3093,12 +3088,12 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'reports' && (
                       <div>
                         <div className="flex items-center justify-between">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Reports
                           </h2>
                           <div className="flex gap-2">
                             <Button
-                              className="font-jost bg-[#AF8C3E]"
+                              className="font-mulish bg-[#AF8C3E]"
                               onClick={exportReportToCSV}
                             >
                               EXPORT
@@ -3133,7 +3128,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                           </div>
                         </div>
                         <Button
-                          className="capitalize font-jost font-normal mt-3 shadow-xl rounded bg-[#AF8C3E]  "
+                          className="capitalize font-mulish font-normal mt-3 shadow-xl rounded bg-[#AF8C3E]  "
                           onClick={handleClearFilters}
                         >
                           Clear
@@ -3142,10 +3137,10 @@ const [uploadProgress, setUploadProgress] = useState({});
                           <div className="bg-[#AF8C3E] shadow-xl rounded-md p-5 col-span-12">
                             <div className="flex justify-between items-center">
                               <div>
-                                <Typography className="font-jost text-white font-medium">
+                                <Typography className="font-mulish text-white font-medium">
                                   Sales In The Defined Period
                                 </Typography>
-                                <Typography className="font-jost text-white text-2xl">
+                                <Typography className="font-mulish text-white text-2xl">
                                   ₹{courseData.totalSales}
                                 </Typography>
                               </div>
@@ -3157,10 +3152,10 @@ const [uploadProgress, setUploadProgress] = useState({});
                           <div className="bg-[#AF8C3E] shadow-xl rounded-md p-5 col-span-12 md:col-span-6 xl:col-span-6">
                             <div className="flex justify-between items-center">
                               <div>
-                                <Typography className="font-jost text-white font-medium">
+                                <Typography className="font-mulish text-white font-medium">
                                   Total Course Bookings
                                 </Typography>
-                                <Typography className="font-jost text-white text-2xl">
+                                <Typography className="font-mulish text-white text-2xl">
                                   {courseData.totalBookings}
                                 </Typography>
                               </div>
@@ -3172,10 +3167,10 @@ const [uploadProgress, setUploadProgress] = useState({});
                           <div className="bg-[#AF8C3E] shadow-xl rounded-md p-5 col-span-12 md:col-span-6 xl:col-span-6">
                             <div className="flex justify-between items-center">
                               <div>
-                                <Typography className="font-jost text-white font-medium">
+                                <Typography className="font-mulish text-white font-medium">
                                   Registered Customers
                                 </Typography>
-                                <Typography className="font-jost text-white text-2xl">
+                                <Typography className="font-mulish text-white text-2xl">
                                   {courseData.registeredCustomers}
                                 </Typography>
                               </div>
@@ -3188,10 +3183,10 @@ const [uploadProgress, setUploadProgress] = useState({});
                           <div className="bg-[#AF8C3E] shadow-xl rounded-md p-5 col-span-12 md:col-span-6 xl:col-span-6">
                             <div className="flex justify-between items-center">
                               <div>
-                                <Typography className="font-jost text-white font-medium">
+                                <Typography className="font-mulish text-white font-medium">
                                   Onboarded Customers
                                 </Typography>
-                                <Typography className="font-jost text-white text-2xl">
+                                <Typography className="font-mulish text-white text-2xl">
                                   {courseData.onboardedCustomers}
                                 </Typography>
                               </div>
@@ -3203,10 +3198,10 @@ const [uploadProgress, setUploadProgress] = useState({});
                           {/* <div className="bg-[#AF8C3E] shadow-xl rounded-md p-5 col-span-12 md:col-span-6 xl:col-span-6"> */}
                           {/* <div className="flex justify-between items-center">
                               <div>
-                                <Typography className="font-jost text-white font-medium">
+                                <Typography className="font-mulish text-white font-medium">
                                   Total Refunds
                                 </Typography>
-                                <Typography className="font-jost text-white text-2xl">
+                                <Typography className="font-mulish text-white text-2xl">
                                   0
                                 </Typography>
                               </div>
@@ -3222,7 +3217,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'viewcustomer' && (
                       <div>
                         <div className="flex justify-between items-center">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             View Customer
                           </h2>
                           <IoArrowBackCircleOutline
@@ -3245,38 +3240,38 @@ const [uploadProgress, setUploadProgress] = useState({});
                             />
                           </div>
                           <div className="flex items-center justify-between">
-                            <h2 className="text-xl mt-2 flex font-jost font-medium">
+                            <h2 className="text-xl mt-2 flex font-mulish font-medium">
                               Details
                             </h2>
                           </div>
                           <hr className="my-4"></hr>
                           <div className="grid grid-cols-12 gap-5">
                             <div className="flex lg:col-span-6 md:col-span-6 col-span-12 flex-col">
-                              <Typography className="font-jost font-semibold">
+                              <Typography className="font-mulish font-semibold">
                                 Full Name :
                               </Typography>
-                              <Typography className="font-jost border rounded shadow-2xl p-1 text-base font-normal">
+                              <Typography className="font-mulish border rounded shadow-2xl p-1 text-base font-normal">
                                 {customerAction.name || ''}
                               </Typography>
                             </div>
                             <div className="flex lg:col-span-6 md:col-span-6 col-span-12 flex-col">
-                              <Typography className="font-jost font-semibold">
+                              <Typography className="font-mulish font-semibold">
                                 Phone :
                               </Typography>
-                              <Typography className="font-jost text-base border rounded shadow-2xl p-1 font-normal">
+                              <Typography className="font-mulish text-base border rounded shadow-2xl p-1 font-normal">
                                 {customerAction.phone || 0}
                               </Typography>
                             </div>
                             <div className="flex lg:col-span-6 md:col-span-6 col-span-12 flex-col">
-                              <Typography className="font-jost font-semibold">
+                              <Typography className="font-mulish font-semibold">
                                 Email :
                               </Typography>
-                              <Typography className="font-jost border rounded shadow-2xl p-1 text-base font-normal">
+                              <Typography className="font-mulish border rounded shadow-2xl p-1 text-base font-normal">
                                 {customerAction.email || ''}
                               </Typography>
                             </div>
                             <Button
-                              className="font-jost col-span-12 bg-[#AF8C3E]"
+                              className="font-mulish col-span-12 bg-[#AF8C3E]"
                               onClick={() => {
                                 setActiveTab('enrollments');
                                 // setSelectedCustomerId(customerAction._id); // Pass customer ID
@@ -3292,7 +3287,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'viewenrollment' && data && (
                       <div>
                         <div className="flex justify-between items-center">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             View Enrollment
                           </h2>
                           <IoArrowBackCircleOutline
@@ -3304,26 +3299,26 @@ const [uploadProgress, setUploadProgress] = useState({});
                         <hr className="my-5" />
                         <div className="col-span-12 flex mb-5 flex-col md:flex-row justify-between rounded-lg bg-gray-200 shadow-lg p-2.5 gap-5">
                           <div className="flex flex-col xl:flex-row gap-2">
-                            <Typography className="font-jost m-0 text-base font-medium">
+                            <Typography className="font-mulish m-0 text-base font-medium">
                               Customer Name:
                             </Typography>
-                            <Typography className="font-jost m-0 text-base font-normal">
+                            <Typography className="font-mulish m-0 text-base font-normal">
                               {data.userDetails.name}
                             </Typography>
                           </div>
                           <div className="flex flex-col xl:flex-row gap-2">
-                            <Typography className="font-jost m-0 text-base font-medium">
+                            <Typography className="font-mulish m-0 text-base font-medium">
                               Customer Email:
                             </Typography>
-                            <Typography className="font-jost m-0 text-base font-normal">
+                            <Typography className="font-mulish m-0 text-base font-normal">
                               {data.userDetails.email}
                             </Typography>
                           </div>
                           <div className="flex flex-col xl:flex-row gap-2">
-                            <Typography className="font-jost m-0 text-base font-medium">
+                            <Typography className="font-mulish m-0 text-base font-medium">
                               Customer Phone No.:
                             </Typography>
-                            <Typography className="font-jost m-0 text-base font-normal">
+                            <Typography className="font-mulish m-0 text-base font-normal">
                               {data.userDetails.phone
                                 ? data.userDetails.phone
                                 : 'No phone number added'}
@@ -3344,54 +3339,54 @@ const [uploadProgress, setUploadProgress] = useState({});
                             alt="courseImg"
                           />
                           <div className="gap-2 p-5 flex items-center flex-col">
-                            <Typography className="font-jost m-0 text-center font-semibold text-2xl">
+                            <Typography className="font-mulish m-0 text-center font-semibold text-2xl">
                               {data.courseDetails.name}
                             </Typography>
-                            <Typography className="font-jost m-0 text-center font-normal text-base">
+                            <Typography className="font-mulish m-0 text-center font-normal text-base">
                               Start Date:{' '}
                               {new Date(
                                 data.courseDetails.startDate,
                               ).toLocaleDateString()}
                             </Typography>
-                            <Typography className="font-jost m-0 text-center font-normal text-base">
+                            <Typography className="font-mulish m-0 text-center font-normal text-base">
                               Duration: {data.courseDetails.duration} Month(s)
                             </Typography>
-                            {/* <Typography className="font-jost max-w-[50%] text-center font-normal text-base">
+                            {/* <Typography className="font-mulish max-w-[50%] text-center font-normal text-base">
                               Description: {data.courseDetails.description}
                             </Typography> */}
-                            <Typography className="font-jost m-0 text-center font-normal text-base">
+                            <Typography className="font-mulish m-0 text-center font-normal text-base">
                               Platform: Zoom
                             </Typography>
                           </div>
                           <div className="gap-2 px-5 py-5 xl:py-10 flex justify-between flex-col">
-                            <Typography className="font-jost m-0 text-center font-normal text-xl">
+                            <Typography className="font-mulish m-0 text-center font-normal text-xl">
                               Total Fees: INR {data.paymentDetails.courseAmount}
                               /-
                             </Typography>
-                            <Typography className="font-jost m-0 text-center font-normal text-xl">
+                            <Typography className="font-mulish m-0 text-center font-normal text-xl">
                               Registration Paid: INR{' '}
                               {data.paymentDetails.registrationAmount}/-
                             </Typography>
-                            <Typography className="font-jost m-0 text-center font-normal text-xl">
+                            <Typography className="font-mulish m-0 text-center font-normal text-xl">
                               Discount: INR {data.paymentDetails.discountCost}/-
                             </Typography>
-                            <Typography className="font-jost m-0 text-center font-normal text-xl">
+                            <Typography className="font-mulish m-0 text-center font-normal text-xl">
                               Payment Status:{' '}
                               {data.paymentDetails.paymentStatus}
                             </Typography>
                           </div>
                         </div>
-                        <div className="table-auto mt-5 text-center overflow-x-auto w-full text-base font-jost">
+                        <div className="table-auto mt-5 text-center overflow-x-auto w-full text-base font-mulish">
                           <table className="w-full">
                             <thead className="text-white">
                               <tr className="border-gray-200">
-                                <th className="md:p-3 p-2 rounded-l-xl bg-[#AF8C3E] font-jost font-medium">
+                                <th className="md:p-3 p-2 rounded-l-xl bg-[#AF8C3E] font-mulish font-medium">
                                   Meeting ID
                                 </th>
-                                <th className="md:p-3 p-2 bg-[#AF8C3E] font-jost font-medium">
+                                <th className="md:p-3 p-2 bg-[#AF8C3E] font-mulish font-medium">
                                   Join Link
                                 </th>
-                                <th className="md:p-3 p-2 rounded-r-xl bg-[#AF8C3E] font-jost font-medium">
+                                <th className="md:p-3 p-2 rounded-r-xl bg-[#AF8C3E] font-mulish font-medium">
                                   Password
                                 </th>
                               </tr>
@@ -3427,99 +3422,147 @@ const [uploadProgress, setUploadProgress] = useState({});
                         </div>
                       </div>
                     )}
-                    {activeTab === "zoomvideotab" && meetingDetails && zoomCourse && (
-  <div className="p-5">
-    <div className="flex justify-between items-center mb-4">
-      <h2 className="text-xl font-jost font-medium">{zoomCourse.name}</h2>
-      <IoArrowBackCircleOutline
-        className="cursor-pointer text-black"
-        size={40}
-        onClick={() => setActiveTab("coursemanagement")}
-      />
-    </div>
-    <hr className="my-4" />
-    <div className="overflow-x-auto overflow-y-auto max-h-[500px]">
-      <table className="table-auto w-full text-base font-jost border-collapse">
-        <thead className="bg-[#AF8C3E] text-white">
-          <tr>
-            <th className="p-3">Course Date</th>
-            <th className="p-3">Day</th>
-            <th className="p-3">Meeting ID</th>
-            <th className="p-3">Course Time</th>
-            <th className="p-3">Password</th>
-            <th className="p-3">Join Link</th>
-            <th className="p-3">Upload Video</th>
-            <th className="p-3">View Video</th>
-          </tr>
-        </thead>
-        <tbody>
-          {classDates.map((dateItem, index) => (
-            <tr key={index} className="border-b border-gray-200 text-center">
-              <td className="p-3">{dateItem.date}</td>
-              <td className="p-3">{dateItem.dayName}</td>
-              <td className="p-3">{meetingDetails.meeting.meetingId}</td>
-              <td className="p-3">{`${zoomCourse.timeSlot.startTime} - ${zoomCourse.timeSlot.endTime}`}</td>
-              <td className="p-3">{meetingDetails.meeting.password}</td>
-              <td className="p-3">
-                <Button
-                  size="small"
-                  className="bg-[#AF8C3E] font-jost"
-                  onClick={() => window.open(meetingDetails.meeting.joinUrl, "_blank")}
-                >
-                  Join
-                </Button>
-              </td>
-              <td className="p-3">
-  {uploadedVideos[dateItem.date] ? (
-    <span className="text-green-600 font-bold">✅ Successfully Uploaded</span>
-  ) : (
-    <>
-      <input 
-        type="file" 
-        accept="video/*" 
-        onChange={handleVideoChange} 
-        className="mb-2 block" 
-      />
-      <Button
-        size="small"
-        className="bg-[#AF8C3E] font-jost"
-        onClick={() => handlevideoUpload(zoomCourse._id, dateItem.date, index)}
-        disabled={loadingStates[dateItem.date]}
-      >
-        {loadingStates[dateItem.date] ? "Uploading..." : "Upload"}
-      </Button>
-      
-      {/* Show progress bar only if uploading */}
-      {loadingStates[dateItem.date] && (
-        <div className="flex flex-col items-center">
-          <p className="text-sm text-gray-500 mt-1">Uploading...</p>
-          <CircularWithValueLabel value={uploadProgress[dateItem.date] || 0} />
-        </div>
-      )}
-    </>
-  )}
-</td>
+                    {activeTab === 'zoomvideotab' &&
+                      meetingDetails &&
+                      zoomCourse && (
+                        <div className="p-5">
+                          <div className="flex justify-between items-center mb-4">
+                            <h2 className="text-xl font-mulish font-medium">
+                              {zoomCourse.name}
+                            </h2>
+                            <IoArrowBackCircleOutline
+                              className="cursor-pointer text-black"
+                              size={40}
+                              onClick={() => setActiveTab('coursemanagement')}
+                            />
+                          </div>
+                          <hr className="my-4" />
+                          <div className="overflow-x-auto overflow-y-auto max-h-[500px]">
+                            <table className="table-auto w-full text-base font-mulish border-collapse">
+                              <thead className="bg-[#AF8C3E] text-white">
+                                <tr>
+                                  <th className="p-3">Course Date</th>
+                                  <th className="p-3">Day</th>
+                                  <th className="p-3">Meeting ID</th>
+                                  <th className="p-3">Course Time</th>
+                                  <th className="p-3">Password</th>
+                                  <th className="p-3">Join Link</th>
+                                  <th className="p-3">Upload Video</th>
+                                  <th className="p-3">View Video</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {classDates.map((dateItem, index) => (
+                                  <tr
+                                    key={index}
+                                    className="border-b border-gray-200 text-center"
+                                  >
+                                    <td className="p-3">{dateItem.date}</td>
+                                    <td className="p-3">{dateItem.dayName}</td>
+                                    <td className="p-3">
+                                      {meetingDetails.meeting.meetingId}
+                                    </td>
+                                    <td className="p-3">{`${zoomCourse.timeSlot.startTime} - ${zoomCourse.timeSlot.endTime}`}</td>
+                                    <td className="p-3">
+                                      {meetingDetails.meeting.password}
+                                    </td>
+                                    <td className="p-3">
+                                      <Button
+                                        size="small"
+                                        className="bg-[#AF8C3E] font-mulish"
+                                        onClick={() =>
+                                          window.open(
+                                            meetingDetails.meeting.joinUrl,
+                                            '_blank',
+                                          )
+                                        }
+                                      >
+                                        Join
+                                      </Button>
+                                    </td>
+                                    <td className="p-3">
+                                      {uploadedVideos[dateItem.date] ? (
+                                        <span className="text-green-600 font-bold">
+                                          ✅ Successfully Uploaded
+                                        </span>
+                                      ) : (
+                                        <>
+                                          <input
+                                            type="file"
+                                            accept="video/*"
+                                            onChange={handleVideoChange}
+                                            className="mb-2 block"
+                                          />
+                                          <Button
+                                            size="small"
+                                            className="bg-[#AF8C3E] font-mulish"
+                                            onClick={() =>
+                                              handlevideoUpload(
+                                                zoomCourse._id,
+                                                dateItem.date,
+                                                index,
+                                              )
+                                            }
+                                            disabled={
+                                              loadingStates[dateItem.date]
+                                            }
+                                          >
+                                            {loadingStates[dateItem.date]
+                                              ? 'Uploading...'
+                                              : 'Upload'}
+                                          </Button>
 
-             <td className="p-3">
-  <Button 
-    size="small" 
-    className="bg-[#AF8C3E] font-jost" 
-    onClick={() => fetchVideos(zoomCourse._id, dateItem.date)}
-  >
-    View Video
-  </Button>
+                                          {/* Show progress bar only if uploading */}
+                                          {loadingStates[dateItem.date] && (
+                                            <div className="flex flex-col items-center">
+                                              <p className="text-sm text-gray-500 mt-1">
+                                                Uploading...
+                                              </p>
+                                              <CircularWithValueLabel
+                                                value={
+                                                  uploadProgress[
+                                                    dateItem.date
+                                                  ] || 0
+                                                }
+                                              />
+                                            </div>
+                                          )}
+                                        </>
+                                      )}
+                                    </td>
 
-  {videoUrls[dateItem.date] && videoUrls[dateItem.date].length > 0 && (
-    <>
-      {videoUrls[dateItem.date].map((videoUrl, i) => (
-        <div key={i} className="mt-2">
-          <Button 
-            size="small" 
-            className="bg-[#AF8C3E] font-jost" 
-            onClick={() => {
-              const newWindow = window.open("", "_blank");
-              if (newWindow) {
-                newWindow.document.write(`
+                                    <td className="p-3">
+                                      <Button
+                                        size="small"
+                                        className="bg-[#AF8C3E] font-mulish"
+                                        onClick={() =>
+                                          fetchVideos(
+                                            zoomCourse._id,
+                                            dateItem.date,
+                                          )
+                                        }
+                                      >
+                                        View Video
+                                      </Button>
+
+                                      {videoUrls[dateItem.date] &&
+                                        videoUrls[dateItem.date].length > 0 && (
+                                          <>
+                                            {videoUrls[dateItem.date].map(
+                                              (videoUrl, i) => (
+                                                <div key={i} className="mt-2">
+                                                  <Button
+                                                    size="small"
+                                                    className="bg-[#AF8C3E] font-mulish"
+                                                    onClick={() => {
+                                                      const newWindow =
+                                                        window.open(
+                                                          '',
+                                                          '_blank',
+                                                        );
+                                                      if (newWindow) {
+                                                        newWindow.document
+                                                          .write(`
                   <html>
                     <head>
                       <title>Video Player</title>
@@ -3539,30 +3582,30 @@ const [uploadProgress, setUploadProgress] = useState({});
                     </body>
                   </html>
                 `);
-                newWindow.document.close();
-              }
-            }}
-          >
-            Play Video {i + 1}
-          </Button>
-        </div>
-      ))}
-    </>
-  )}
-</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </div>
-)}
+                                                        newWindow.document.close();
+                                                      }
+                                                    }}
+                                                  >
+                                                    Play Video {i + 1}
+                                                  </Button>
+                                                </div>
+                                              ),
+                                            )}
+                                          </>
+                                        )}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      )}
 
-                  
                     {activeTab === 'addcustomer' && (
                       <div>
                         <div className="flex justify-between items-center">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Add Customer
                           </h2>
                           <IoArrowBackCircleOutline
@@ -3604,7 +3647,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                           <div className="flex justify-left mt-5">
                             <Button
                               // onClick={handleSubmit}
-                              className="font-jost bg-[#AF8C3E]"
+                              className="font-mulish bg-[#AF8C3E]"
                               size="md"
                             >
                               Add
@@ -3616,7 +3659,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                     {activeTab === 'addCustomerEnrollment' && (
                       <div>
                         <div className="flex justify-between items-center">
-                          <h2 className="text-xl font-jost font-medium">
+                          <h2 className="text-xl font-mulish font-medium">
                             Enroll Course
                           </h2>
                           <IoArrowBackCircleOutline
@@ -3629,7 +3672,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                         </div>
                         <hr className="my-5" />
                         <div className="flex flex-col justify-center">
-                          <h1 className="block antialiased tracking-normal font-jost text-lg font-medium leading-snug mb-5">
+                          <h1 className="block antialiased tracking-normal font-mulish text-lg font-medium leading-snug mb-5">
                             Add Course Information
                           </h1>
                           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-5">
@@ -3706,7 +3749,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               />
                             </div>
                             <div className="col-span-1 flex justify-center items-center w-full gap-2 sm:col-span-2 lg:col-span-3">
-                              <Typography className="font-jost font-medium text-xl">
+                              <Typography className="font-mulish font-medium text-xl">
                                 Choose Days
                               </Typography>
                             </div>
@@ -3734,7 +3777,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               ))}
                             </div>
                             <div className="col-span-1 flex justify-center items-center w-full gap-2 sm:col-span-2 lg:col-span-3">
-                              <Typography className="font-jost font-medium text-xl">
+                              <Typography className="font-mulish font-medium text-xl">
                                 Choose Slot
                               </Typography>
                             </div>
@@ -3745,7 +3788,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                                 onChange={handleTimeChange}
                                 label="Start Time"
                               />
-                              <Typography className="font-jost font-normal text-sm">
+                              <Typography className="font-mulish font-normal text-sm">
                                 To
                               </Typography>
                               <Input
@@ -3756,7 +3799,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                               />
                             </div>
                             <div className="col-span-1 sm:col-span-2 lg:col-span-3">
-                              <Typography className="font-jost font-medium text-xl">
+                              <Typography className="font-mulish font-medium text-xl">
                                 Course Type
                               </Typography>
                               <div className="flex justify-start gap-5 mt-2">
@@ -3785,12 +3828,12 @@ const [uploadProgress, setUploadProgress] = useState({});
                               </div>
                             </div>
                             <div className="col-span-1 flex  items-center w-full  sm:col-span-2 lg:col-span-3">
-                              <Typography className="font-jost m-0 font-medium text-xl">
+                              <Typography className="font-mulish m-0 font-medium text-xl">
                                 Select Thumbnail
                               </Typography>
                             </div>
                             <div className="col-span-1">
-                              <Typography className="font-jost font-semibold">
+                              <Typography className="font-mulish font-semibold">
                                 <input
                                   type="file"
                                   accept="image/*"
@@ -3807,7 +3850,7 @@ const [uploadProgress, setUploadProgress] = useState({});
                           <div className="flex justify-end mt-2">
                             <Button
                               // onClick={handleSubmit}
-                              className="font-jost bg-[#AF8C3E]"
+                              className="font-mulish bg-[#AF8C3E]"
                               size="lg"
                             >
                               Enroll

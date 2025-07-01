@@ -1,5 +1,5 @@
-import React from "react";
-import { useCountries } from "use-react-countries";
+import React from 'react';
+import { useCountries } from 'use-react-countries';
 import {
   Input,
   Menu,
@@ -7,13 +7,13 @@ import {
   MenuList,
   MenuItem,
   Button,
-} from "@material-tailwind/react";
- 
+} from '@material-tailwind/react';
+
 export function Number() {
   const { countries } = useCountries();
   const [country, setCountry] = React.useState(0);
   const { name, flags, countryCallingCode } = countries[country];
- 
+
   return (
     <div className="relative flex w-full">
       <Menu placement="bottom-start">
@@ -55,12 +55,12 @@ export function Number() {
       <Input
         type="tel"
         placeholder="Mobile Number"
-        className="rounded-l-none font-jost !border-t-blue-gray-200 focus:!border-t-gray-900"
+        className="rounded-l-none font-mulish !border-t-blue-gray-200 focus:!border-t-gray-900"
         labelProps={{
-          className: "before:content-none after:content-none",
+          className: 'before:content-none after:content-none',
         }}
         containerProps={{
-          className: "min-w-0",
+          className: 'min-w-0',
         }}
       />
     </div>

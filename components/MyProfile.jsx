@@ -99,7 +99,7 @@ const MyProfile = () => {
   return (
     <div className="grid grid-rows-12">
       <div className="row-span-1">
-        <h2 className="text-xl font-jost font-medium">My Profile</h2>
+        <h2 className="text-xl font-mulish font-medium">My Profile</h2>
         <hr className="my-5" />
         <div className="flex flex-col items-center">
           <Image
@@ -129,7 +129,7 @@ const MyProfile = () => {
         </div>
 
         <div className="flex items-center justify-between">
-          <h2 className="text-xl mt-2 font-jost font-medium">
+          <h2 className="text-xl mt-2 font-mulish font-medium">
             Personal Details
           </h2>
           <ProfileUpdatePopUp user={user} />
@@ -139,34 +139,38 @@ const MyProfile = () => {
 
         <div className="grid grid-cols-12 gap-5">
           <div className="flex lg:col-span-6 md:col-span-6 col-span-12 flex-col">
-            <Typography className="font-jost mt-0 font-semibold">
+            <Typography className="font-mulish mt-0 font-semibold">
               Full name:
             </Typography>
-            <Typography className="font-jost border mt-0 rounded shadow-2xl p-1 text-base font-normal">
+            <Typography className="font-mulish border mt-0 rounded shadow-2xl p-1 text-base font-normal">
               {user.user.fullName}
             </Typography>
           </div>
 
           <div className="flex lg:col-span-6 md:col-span-6 col-span-12 flex-col"></div>
           <div className="flex lg:col-span-6 md:col-span-6 col-span-12 flex-col">
-            <Typography className="font-jost mt-0 font-semibold">
+            <Typography className="font-mulish mt-0 font-semibold">
               Phone:
             </Typography>
-            <Typography className="font-jost mt-0 text-base border rounded shadow-2xl p-1 font-normal">
+            <Typography className="font-mulish mt-0 text-base border rounded shadow-2xl p-1 font-normal">
               {user.user.phone ? user.user.phone : 'No phone number added'}
             </Typography>
           </div>
         </div>
 
         <div className="flex mt-10 justify-between">
-          <h2 className="text-xl mt-2 font-jost font-medium">Login Details</h2>
+          <h2 className="text-xl mt-2 font-mulish font-medium">
+            Login Details
+          </h2>
         </div>
 
         <hr className="my-4" />
         <div className="grid grid-cols-12 gap-5">
           <div className="flex lg:col-span-6 md:col-span-6 col-span-12 flex-col">
-            <Typography className="font-jost font-semibold">Email:</Typography>
-            <Typography className="font-jost border rounded shadow-2xl p-1 text-base font-normal">
+            <Typography className="font-mulish font-semibold">
+              Email:
+            </Typography>
+            <Typography className="font-mulish border rounded shadow-2xl p-1 text-base font-normal">
               {user.user.email}
             </Typography>
           </div>

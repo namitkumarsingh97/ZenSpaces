@@ -116,7 +116,7 @@ const RegisterPage = () => {
         setSuccessMessage('Welcome back! Redirecting to the homepage...');
         setIsLoggedIn(true);
         router.push(
-          'https://astropathways.com/course?courseTitle=Lal+Kitab+Course',
+          'https://ZenSpaces.com/course?courseTitle=Lal+Kitab+Course',
         );
       } else {
         throw new Error('Invalid role detected. Please contact support.');
@@ -180,17 +180,17 @@ const RegisterPage = () => {
       <div className="relative mt-[-30%] bg-[url('/loginbg.jpg')] bg-cover bg-left xl:mt-[-23%] 2xl:mt-[-28%] flex items-center justify-center flex-col h-[100vh] xl:h-[150vh] overflow-hidden">
         <div className="w-full flex flex-col md:flex-row lg:max-w-[60%] xl:mt-[20%] md:mt-[35%] max-w-[80%] mt-[6%] h-auto">
           <div className="h-full hidden lg:flex w-full md:w-[50%] flex-col rounded-s-xl p-5 justify-between border-8 border-white">
-            <Typography className="font-jost mb-0 font-lg italic">
+            <Typography className="font-mulish mb-0 font-lg italic">
               Discover Your Path Through Astrology
             </Typography>
             <div className="flex flex-col gap-1">
-              <Typography className="font-ibarra m-0 italic text-4xl md:text-6xl 2xl:text-6xl xl:text-3xl">
+              <Typography className="font-manrope m-0 italic text-4xl md:text-6xl 2xl:text-6xl xl:text-3xl">
                 Life
               </Typography>
-              <Typography className="font-ibarra m-0 italic text-4xl md:text-5xl xl:text-3xl 2xl:text-5xl">
+              <Typography className="font-manrope m-0 italic text-4xl md:text-5xl xl:text-3xl 2xl:text-5xl">
                 Among the Stars...
               </Typography>
-              <Typography className="w-full m-0 md:w-[70%] font-jost">
+              <Typography className="w-full m-0 md:w-[70%] font-mulish">
                 Unlock the ancient wisdom of the cosmos.
               </Typography>
             </div>
@@ -199,17 +199,17 @@ const RegisterPage = () => {
           {/* Main Content */}
           <div className=" w-full flex items-center p-5 lg:rounded-e-xl h-auto justify-center lg:w-[50%] bg-white">
             <div className="flex flex-col h-full w-full items-center justify-between">
-              <Typography className="font-jost text-black font-normal text-xl">
-                Astropathways
+              <Typography className="font-mulish text-black font-normal text-xl">
+                ZenSpaces
               </Typography>
               {ifLogin ? (
                 <>
                   <div className="flex flex-col gap-3 justify-center items-center">
                     <div className="flex flex-col w-full lg:w-[20vw] gap-2">
-                      <Typography className="font-ibarra text-center m-0 text-black text-3xl xl:text-4xl 2xl:text-5xl">
+                      <Typography className="font-manrope text-center m-0 text-black text-3xl xl:text-4xl 2xl:text-5xl">
                         Welcome Back
                       </Typography>
-                      <Typography className="font-jost text-center text-black text-base">
+                      <Typography className="font-mulish text-center text-black text-base">
                         Enter your email and password to access your account
                       </Typography>
                     </div>
@@ -233,7 +233,7 @@ const RegisterPage = () => {
                     </div>
                     <Button
                       variant="filled"
-                      className="w-full font-jost"
+                      className="w-full font-mulish"
                       type="submit"
                       onClick={handleLogin}
                     >
@@ -241,11 +241,11 @@ const RegisterPage = () => {
                     </Button>
                   </div>
                   <div className="flex flex-between gap-1 items-center">
-                    <Typography className="font-jost text-black text-lg">
+                    <Typography className="font-mulish text-black text-lg">
                       Don&apos;t have an account?
                     </Typography>
                     <Typography
-                      className="font-jost cursor-pointer text-black font-bold text-base"
+                      className="font-mulish cursor-pointer text-black font-bold text-base"
                       onClick={() => {
                         setIfLogin(false);
                         setError('');
@@ -256,7 +256,7 @@ const RegisterPage = () => {
                     </Typography>
                   </div>
                   <Typography
-                    className="font-jost text-black text-base cursor-pointer"
+                    className="font-mulish text-black text-base cursor-pointer"
                     onClick={() => setShowForgotPassword(true)}
                   >
                     Forgot Password?
@@ -266,10 +266,10 @@ const RegisterPage = () => {
                 <>
                   <div className="flex flex-col gap-3 justify-center items-center">
                     <div className="flex flex-col w-full md:w-[20vw] gap-2">
-                      <Typography className="font-ibarra text-center m-0 text-black text-3xl xl:text-4xl 2xl:text-5xl">
+                      <Typography className="font-manrope text-center m-0 text-black text-3xl xl:text-4xl 2xl:text-5xl">
                         Welcome
                       </Typography>
-                      <Typography className="font-jost text-center text-black text-base">
+                      <Typography className="font-mulish text-center text-black text-base">
                         Enter the following details to register your account
                       </Typography>
                     </div>
@@ -301,7 +301,7 @@ const RegisterPage = () => {
                     </div>
                     <Button
                       variant="filled"
-                      className="w-full font-jost"
+                      className="w-full font-mulish"
                       onClick={handleSignup}
                       type="submit"
                     >
@@ -309,11 +309,11 @@ const RegisterPage = () => {
                     </Button>
                   </div>
                   <div className="flex flex-between gap-1 items-center">
-                    <Typography className="font-jost text-black text-lg">
+                    <Typography className="font-mulish text-black text-lg">
                       Already have an account?
                     </Typography>
                     <Typography
-                      className="font-jost cursor-pointer text-black font-bold text-base"
+                      className="font-mulish cursor-pointer text-black font-bold text-base"
                       onClick={() => {
                         setIfLogin(true);
                         setError('');
@@ -339,7 +339,7 @@ const RegisterPage = () => {
         {showForgotPassword && (
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg shadow-lg w-80">
-              <Typography className="text-black font-jost text-lg mb-4">
+              <Typography className="text-black font-mulish text-lg mb-4">
                 Reset Password
               </Typography>
               <Input
@@ -351,14 +351,14 @@ const RegisterPage = () => {
               />
               <Button
                 variant="filled"
-                className="w-full font-jost mt-4"
+                className="w-full font-mulish mt-4"
                 onClick={handleForgotPassword}
               >
                 Send Reset Link
               </Button>
               <Button
                 variant="text"
-                className="font-jost text-black text-lg mt-2"
+                className="font-mulish text-black text-lg mt-2"
                 onClick={() => setShowForgotPassword(false)}
               >
                 Close

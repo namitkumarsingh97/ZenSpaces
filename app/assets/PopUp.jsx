@@ -95,7 +95,7 @@ export function PopUp({ courseId }) {
     <>
       <Button
         onClick={handleEnrollClick} // Checks login status before navigation
-        className="font-jost rounded-sm border-dotted border border-white hover:scale-110 transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base w-full"
+        className="font-mulish rounded-sm border-dotted border border-white hover:scale-110 transform transition duration-500 bg-[#AF8C3E] capitalize font-medium text-base w-full"
       >
         Enroll Now
       </Button>
@@ -107,12 +107,12 @@ export function PopUp({ courseId }) {
       >
         <DialogHeader className="relative m-0 block">
           <Typography
-            className="font-ibarra text-3xl md:text-4xl"
+            className="font-manrope text-3xl md:text-4xl"
             color="blue-gray"
           >
             Limited Seats Available
           </Typography>
-          <Typography className="mt-1 font-jost font-normal text-gray-600">
+          <Typography className="mt-1 font-mulish font-normal text-gray-600">
             Unlock the secrets of Lal Kitab.
           </Typography>
           <IconButton
@@ -155,7 +155,7 @@ export function PopUp({ courseId }) {
         </DialogBody>
 
         <DialogFooter>
-          <Typography className="font-jost text-center text-gray-600 text-sm md:text-base">
+          <Typography className="font-mulish text-center text-gray-600 text-sm md:text-base">
             *Secure payments powered by Razorpay
           </Typography>
         </DialogFooter>

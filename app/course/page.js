@@ -111,26 +111,26 @@ function CourseDetails() {
 
           <div className="flex flex-col gap-5 justify-center">
             <div className="flex flex-col gap-2">
-              <Typography className="2xl:text-6xl md:test-5xl m-0 text-4xl font-ibarra">
+              <Typography className="2xl:text-6xl md:test-5xl m-0 text-4xl font-manrope">
                 {courseTitle || 'Course Title'}
               </Typography>
-              <Typography className="lg:text-3xl italic text-xl m-0 font-ibarra">
+              <Typography className="lg:text-3xl italic text-xl m-0 font-manrope">
                 By {instructor || 'Instructor Name'}
               </Typography>
-              <Typography className="md:text-base text-sm 2xl:max-w-[70%] m-0 w-full font-normal font-jost">
+              <Typography className="md:text-base text-sm 2xl:max-w-[70%] m-0 w-full font-normal font-mulish">
                 {description || 'Course description goes here.'}
               </Typography>
               <div className="flex gap-1">
                 <Rating unratedColor="white" value={4} readonly />
-                <Typography className="text-base m-0 font-jost">
+                <Typography className="text-base m-0 font-mulish">
                   (5k+ Students)
                 </Typography>
               </div>
               <div className="flex flex-col">
-                <Typography className="text-xl m-0 font-jost">
+                <Typography className="text-xl m-0 font-mulish">
                   {duration || 'Duration'}
                 </Typography>
-                <Typography className="text-lg m-0 font-jost">
+                <Typography className="text-lg m-0 font-mulish">
                   {Array.isArray(batch) && batch.length > 0
                     ? batch.length === 2
                       ? batch.join(' and ')
@@ -139,20 +139,20 @@ function CourseDetails() {
                         batch.slice(-1)
                     : 'Saturday and Sunday'}
                 </Typography>
-                <Typography className="2xl:text-xl m-0 text-base text-left 2xl:text-start text-white font-normal font-jost">
+                <Typography className="2xl:text-xl m-0 text-base text-left 2xl:text-start text-white font-normal font-mulish">
                   {schedule}
                 </Typography>
               </div>
               <div className="flex items-end gap-3">
-                <Typography className="md:text-3xl m-0 text-2xl font-jost">
+                <Typography className="md:text-3xl m-0 text-2xl font-mulish">
                   {price || 'Price'}
                 </Typography>
-                <Typography className="md:text-lg m-0 line-through text-gray-400 font-jost">
+                <Typography className="md:text-lg m-0 line-through text-gray-400 font-mulish">
                   {originalPrice || 'Original Price'}
                 </Typography>
               </div>
               {courseType !== 'video' && (
-                <Typography className="font-jost italic mb-0">
+                <Typography className="font-mulish italic mb-0">
                   or 5 easy Installments
                 </Typography>
               )}
@@ -169,7 +169,7 @@ function CourseDetails() {
                   </p>
                 )}
               </p>
-              <Typography className="font-jost italic m-0">
+              <Typography className="font-mulish italic m-0">
                 {paymentOptions || '*Monthly payment options also available*'}
               </Typography>
             </div>
@@ -202,16 +202,16 @@ function CourseDetails() {
       <div className="items-center bg-amber-100 bg-opacity-50 justify-center w-full min-h-[50vh]">
         <div className="max-w-[90%] 2xl:max-w-[80%] w-full mx-auto 2xl:py-20 py-10 flex 2xl:flex-row flex-col 2xl:gap-10 gap-5">
           <div className="flex flex-col gap-10">
-            <Typography className="font-ibarra m-0 2xl:w-[60%] text-3xl text-black md:text-4xl 2xl:text-5xl">
+            <Typography className="font-manrope m-0 2xl:w-[60%] text-3xl text-black md:text-4xl 2xl:text-5xl">
               Receive A Certificate Upon Completion
             </Typography>
             <div className="flex 2xl:items-center gap-5">
               <FaCheckCircle size={40} className="text-black" />
               <div className="flex flex-col gap-1">
-                <Typography className="font-jost m-0 text-black 2xl:text-2xl text-xl font-medium">
+                <Typography className="font-mulish m-0 text-black 2xl:text-2xl text-xl font-medium">
                   Official & Verified
                 </Typography>
-                <Typography className="font-jost m-0 text-black 2xl:text-lg text-base font-normal">
+                <Typography className="font-mulish m-0 text-black 2xl:text-lg text-base font-normal">
                   Receive an instructor signed certificate with institution’s
                   logo to verify your achievements.
                 </Typography>
@@ -220,10 +220,10 @@ function CourseDetails() {
             <div className="flex 2xl:items-center gap-5">
               <FaCheckCircle size={40} className="text-black" />
               <div className="flex flex-col gap-1">
-                <Typography className="font-jost m-0 text-black 2xl:text-2xl text-xl font-medium">
+                <Typography className="font-mulish m-0 text-black 2xl:text-2xl text-xl font-medium">
                   Easily Shareable
                 </Typography>
-                <Typography className="font-jost v text-black 2xl:text-lg text-base 2xl:max-w-[80%] font-normal">
+                <Typography className="font-mulish v text-black 2xl:text-lg text-base 2xl:max-w-[80%] font-normal">
                   Add the certificate to your CV or your Resume or post it
                   directly on LinkedIn. You can even post it on instagram and
                   twitter.
@@ -233,10 +233,10 @@ function CourseDetails() {
             <div className="flex 2xl:items-center gap-5">
               <FaCheckCircle size={40} className="text-black" />
               <div className="flex flex-col gap-1">
-                <Typography className="font-jost m-0 text-black 2xl:text-2xl text-xl font-medium">
+                <Typography className="font-mulish m-0 text-black 2xl:text-2xl text-xl font-medium">
                   Enhances Credibility
                 </Typography>
-                <Typography className="font-jost m-0 text-black 2xl:text-lg text-base font-normal">
+                <Typography className="font-mulish m-0 text-black 2xl:text-lg text-base font-normal">
                   Use your certificate to enhance your professional credibility
                   and stand out among your peers!
                 </Typography>
@@ -252,10 +252,10 @@ function CourseDetails() {
               alt="Trophy"
             />
             <div className="flex flex-col text-center gap-1">
-              <Typography className="font-jost m-0 text-black text-3xl 2xl:text-4xl font-normal">
+              <Typography className="font-mulish m-0 text-black text-3xl 2xl:text-4xl font-normal">
                 After Completion,
               </Typography>
-              <Typography className="font-jost m-0 text-black text-4xl 2xl:text-5xl font-medium">
+              <Typography className="font-mulish m-0 text-black text-4xl 2xl:text-5xl font-medium">
                 Get A Certificate
               </Typography>
             </div>
@@ -263,31 +263,31 @@ function CourseDetails() {
         </div>
       </div>
       <div className="w-full 2xl:max-w-[80%] max-w-[90%] 2xl:mt-20 mt-10 mx-auto 2xl:gap-5 gap-2 flex flex-col items-center py-10 border border-black border-opacity-5 shadow-2xl rounded-xl justify-center 2xl:py-20">
-        <Typography className="2xl:text-5xl m-0 md:text-4xl text-3xl text-center md:px-10 lg:px-0 2xl:text-start text-black font-medium font-ibarra">
+        <Typography className="2xl:text-5xl m-0 md:text-4xl text-3xl text-center md:px-10 lg:px-0 2xl:text-start text-black font-medium font-manrope">
           {' '}
           {courseTitle} By Astrologer {instructor || 'Instructor Name'}
         </Typography>
         <div className="flex flex-col">
-          <Typography className="2xl:text-xl m-0 text-base text-center 2xl:text-start text-black font-normal font-jost">
+          <Typography className="2xl:text-xl m-0 text-base text-center 2xl:text-start text-black font-normal font-mulish">
             {' '}
             {`${duration}, Saturday and Sunday`}
           </Typography>
-          <Typography className="2xl:text-xl m-0 text-base text-center 2xl:text-start text-black font-normal font-jost">
+          <Typography className="2xl:text-xl m-0 text-base text-center 2xl:text-start text-black font-normal font-mulish">
             {' '}
             {schedule}
           </Typography>
         </div>
         <div className="flex items-end gap-3">
-          <Typography className="2xl:text-3xl m-0 text-2xl text-black font-normal font-jost">
+          <Typography className="2xl:text-3xl m-0 text-2xl text-black font-normal font-mulish">
             {' '}
             {price}
           </Typography>
-          <Typography className="2xl:text-lg m-0 line-through text-gray-500 font-normal font-jost">
+          <Typography className="2xl:text-lg m-0 line-through text-gray-500 font-normal font-mulish">
             {' '}
             {originalPrice}
           </Typography>
         </div>
-        <Typography className="font-jost m-0 italic text-black ">
+        <Typography className="font-mulish m-0 italic text-black ">
           {' '}
           {paymentOptions}
         </Typography>

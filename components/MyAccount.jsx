@@ -29,7 +29,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { BASE_URL } from '@/utils/apiClient';
 
-const MyAccount = ({courseId}) => {
+const MyAccount = ({ courseId }) => {
   const [activeTab, setActiveTab] = useState(
     localStorage.getItem('activeTab') || 'myprofile',
   );
@@ -49,7 +49,6 @@ const MyAccount = ({courseId}) => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   // const [videoUrls, setVideoUrls] = useState([]);
- 
 
   useEffect(() => {
     const fetchEnrollments = async () => {
@@ -95,37 +94,39 @@ const MyAccount = ({courseId}) => {
     localStorage.setItem('activeTab', activeTab);
   }, [activeTab]);
   const [selectedCourseName, setSelectedCourseName] = useState(() => {
-    return localStorage.getItem("selectedCourseName") || "";
+    return localStorage.getItem('selectedCourseName') || '';
   });
-  
+
   const [courseZoomMeeting, setCourseZoomMeeting] = useState(() => {
-    return JSON.parse(localStorage.getItem("courseZoomMeeting")) || null;
+    return JSON.parse(localStorage.getItem('courseZoomMeeting')) || null;
   });
-  
+
   const [videoUrls, setVideoUrls] = useState(() => {
-    return JSON.parse(localStorage.getItem("videoUrls")) || [];
+    return JSON.parse(localStorage.getItem('videoUrls')) || [];
   });
-  
+
   useEffect(() => {
     if (selectedCourseName) {
-      localStorage.setItem("selectedCourseName", selectedCourseName);
+      localStorage.setItem('selectedCourseName', selectedCourseName);
     }
     if (courseZoomMeeting) {
-      localStorage.setItem("courseZoomMeeting", JSON.stringify(courseZoomMeeting));
+      localStorage.setItem(
+        'courseZoomMeeting',
+        JSON.stringify(courseZoomMeeting),
+      );
     }
     if (videoUrls.length > 0) {
-      localStorage.setItem("videoUrls", JSON.stringify(videoUrls));
+      localStorage.setItem('videoUrls', JSON.stringify(videoUrls));
     }
   }, [selectedCourseName, courseZoomMeeting, videoUrls]);
-  
+
   useEffect(() => {
-    if (activeTab !== "viewcoursedetails") {
-      localStorage.removeItem("selectedCourseName");
-      localStorage.removeItem("courseZoomMeeting");
-      localStorage.removeItem("videoUrls");
+    if (activeTab !== 'viewcoursedetails') {
+      localStorage.removeItem('selectedCourseName');
+      localStorage.removeItem('courseZoomMeeting');
+      localStorage.removeItem('videoUrls');
     }
   }, [activeTab]);
-  
 
   useEffect(() => {
     if (paymentSuccess) {
@@ -276,8 +277,7 @@ const MyAccount = ({courseId}) => {
       const { orderId } = response.data;
 
       const options = {
-          // key: 'rzp_test_010KxbeBZHkNTK',
-           key: 'rzp_live_kmq2QvpNnJUCR6',
+        key: 'rzp_test_010KxbeBZHkNTK',
         amount: amount * 100,
         currency: 'INR',
         order_id: orderId,
@@ -343,8 +343,7 @@ const MyAccount = ({courseId}) => {
       const { orderId } = response.data;
 
       const options = {
-        // key: 'rzp_test_010KxbeBZHkNTK',
-         key: 'rzp_live_kmq2QvpNnJUCR6',
+        key: 'rzp_test_010KxbeBZHkNTK',
         amount: emiAmount * 100,
         currency: 'INR',
         order_id: orderId,
@@ -419,7 +418,9 @@ const MyAccount = ({courseId}) => {
 
     return (
       <div className="mt-5">
-        <h3 className="font-jost text-lg font-medium">EMI Payment Details:</h3>
+        <h3 className="font-mulish text-lg font-medium">
+          EMI Payment Details:
+        </h3>
         <table className="table-auto w-full border mt-4">
           <thead>
             <tr>
@@ -540,8 +541,6 @@ const MyAccount = ({courseId}) => {
     );
   };
 
-  // const [courseZoomMeeting, setCourseZoomMeeting] = useState([]);
-
   const fetchCourseDetails = async (courseId) => {
     try {
       const courseResponse = await axios.get(
@@ -557,13 +556,11 @@ const MyAccount = ({courseId}) => {
         return;
       }
 
-      // Handle video courses
       if (course.courseType === 'video') {
         setCourseVideoUrl(course.videoUrl);
         return;
       }
 
-      // Handle live courses
       if (course.courseType === 'live') {
         const zoomMeetingResponse = await axios.get(
           `${BASE_URL}/api/zoom/${courseId}`,
@@ -597,7 +594,7 @@ const MyAccount = ({courseId}) => {
   };
 
   const handleViewDetails = (courseId) => {
-    setSelectedCourseId(courseId);   
+    setSelectedCourseId(courseId);
     fetchZoomMeetingDetails(courseId);
   };
   useEffect(() => {
@@ -613,55 +610,33 @@ const MyAccount = ({courseId}) => {
     try {
       setLoadingVideos(true);
       setSelectedSessionIndex(sessionIndex);
-      
-      const response = await fetch(`${BASE_URL}/api/getVideos?courseId=${selectCourseId}&classDate=${classDate}`);
+
+      const response = await fetch(
+        `${BASE_URL}/api/getVideos?courseId=${selectCourseId}&classDate=${classDate}`,
+      );
       const data = await response.json();
-  
+
       if (data.videos) {
         setVideoUrls((prev) => ({
           ...prev,
-          [classDate]: data.videos, // Store videos mapped to class date
+          [classDate]: data.videos,
         }));
       }
     } catch (error) {
-      console.error("Error fetching videos:", error);
+      console.error('Error fetching videos:', error);
     } finally {
       setLoadingVideos(false);
     }
   };
-  
-  // const fetchVideos = async (sessionIndex, classDate) => {
-  //   try {
-  //     setLoadingVideos(true);
-  //     setSelectedSessionIndex(sessionIndex);
-  
-  //     const response = await axios.get(`${BASE_URL}/api/getVideos`, {
-  //       params: { courseId: selectCourseId, classDate }
-  //     });
-  
-  //     setVideoUrls((prev) => ({
-  //       ...prev,
-  //       [classDate]: response.data.videos || []
-  //     }));
-  //   } catch (error) {
-  //     console.error("Error fetching videos:", error);
-  //     setVideoUrls((prev) => ({
-  //       ...prev,
-  //       [classDate]: []
-  //     }));
-  //   } finally {
-  //     setLoadingVideos(false);
-  //   }
-  // };
-  
+
   useEffect(() => {
-    console.log("Updated videoUrls state:");
+    console.log('Updated videoUrls state:');
   }, [videoUrls]);
-  
+
   useEffect(() => {
     const generateClassDates = () => {
-      const startDate = new Date(2025, 2, 10); 
-      const endDate = new Date(2025, 8, 10); 
+      const startDate = new Date(2025, 2, 10);
+      const endDate = new Date(2025, 8, 10);
       let dates = [];
 
       while (startDate <= endDate) {
@@ -669,7 +644,7 @@ const MyAccount = ({courseId}) => {
         if (day === 6 || day === 0) {
           dates.push({
             date: new Date(startDate),
-            dayName: startDate.toLocaleDateString("en-US", { weekday: "long" }),
+            dayName: startDate.toLocaleDateString('en-US', { weekday: 'long' }),
           });
         }
         startDate.setDate(startDate.getDate() + 1);
@@ -701,7 +676,7 @@ const MyAccount = ({courseId}) => {
               </div>
               <div className="col-span-3 hidden lg:flex">
                 <Card className="bg-gray-50 border text-black flex overflow-hidden flex-col h-full w-full rounded-xl shadow-2xl p-1">
-                  <List className="font-jost text-gray-900 text-[16px]">
+                  <List className="font-mulish text-gray-900 text-[16px]">
                     <ListItem onClick={() => setActiveTab('myprofile')}>
                       <ListItemPrefix>
                         <UserCircleIcon className="h-5 w-5" />
@@ -728,7 +703,7 @@ const MyAccount = ({courseId}) => {
                   {activeTab === 'myprofile' && <MyProfile />}
                   {activeTab === 'mycourses' && (
                     <div className="h-full overflow-y-auto">
-                      <h2 className="md:text-xl text-lg font-jost font-medium">
+                      <h2 className="md:text-xl text-lg font-mulish font-medium">
                         My Courses
                       </h2>
                       <hr className="my-5" />
@@ -771,45 +746,45 @@ const MyAccount = ({courseId}) => {
                                     className="rounded-xl"
                                   />
                                   <div className="gap-2 p-5 flex flex-col">
-                                    <Typography className="font-jost mt-0 text-center font-semibold text-2xl">
+                                    <Typography className="font-mulish mt-0 text-center font-semibold text-2xl">
                                       {enrollment.courseId.name}
                                     </Typography>
-                                    <Typography className="font-jost mt-0 text-center font-normal text-base">
+                                    <Typography className="font-mulish mt-0 text-center font-normal text-base">
                                       Start Date:{' '}
                                       {new Date(
                                         enrollment.courseStartDate,
                                       ).toLocaleDateString()}
                                     </Typography>
-                                    <Typography className="font-jost mt-0 text-center font-normal text-base">
+                                    <Typography className="font-mulish mt-0 text-center font-normal text-base">
                                       Time:{' '}
                                       {enrollment.courseId.timeSlot.startTime} -{' '}
                                       {enrollment.courseId.timeSlot.endTime}
                                     </Typography>
-                                    <Typography className="font-jost mt-0 text-center font-normal text-base">
+                                    <Typography className="font-mulish mt-0 text-center font-normal text-base">
                                       Duration: {enrollment.duration}{' '}
                                       {enrollment.courseId.durationType}
                                     </Typography>
-                                    <Typography className="font-jost mt-0 text-center font-normal text-base">
+                                    <Typography className="font-mulish mt-0 text-center font-normal text-base">
                                       Days:{' '}
                                       {enrollment.courseId.days.join(', ')}
                                     </Typography>
-                                    <Typography className="font-jost mt-0 text-center font-normal text-base">
+                                    <Typography className="font-mulish mt-0 text-center font-normal text-base">
                                       Platform:{' '}
                                       {enrollment.courseId.courseType === 'live'
                                         ? 'Google Meet'
                                         : 'Other'}
                                     </Typography>
-                                    <Typography className="font-jost mt-0 text-center font-normal text-base">
+                                    <Typography className="font-mulish mt-0 text-center font-normal text-base">
                                       Instructor:{' '}
                                       {enrollment.courseId.instructor}
                                     </Typography>
                                   </div>
                                   <div className="gap-2 px-5 xl:py-10 py-5 flex flex-col items-center">
-                                    <Typography className="font-jost text-center font-normal text-xl">
+                                    <Typography className="font-mulish text-center font-normal text-xl">
                                       Total Fees: INR {enrollment.discountCost}
                                     </Typography>
                                     {remainingAmount > 0 && (
-                                      <Typography className="font-jost mt-0 text-center font-normal text-xl">
+                                      <Typography className="font-mulish mt-0 text-center font-normal text-xl">
                                         Remaining: INR {remainingAmount}
                                       </Typography>
                                     )}
@@ -819,7 +794,7 @@ const MyAccount = ({courseId}) => {
                                       !hasOverdueEmi ? (
                                         <Button
                                           size="small"
-                                          className="bg-[#AF8C3E] font-jost"
+                                          className="bg-[#AF8C3E] font-mulish"
                                           onClick={() => {
                                             setActiveTab('viewcoursedetails');
                                             setSelectedCourseName(
@@ -853,7 +828,7 @@ const MyAccount = ({courseId}) => {
                                   </div>
                                 </div>
                                 {enrollment.paymentStatus === 'Paid' && (
-                                  <div className="bg-green-200 text-center py-4 mt-4 text-lg font-jost">
+                                  <div className="bg-green-200 text-center py-4 mt-4 text-lg font-mulish">
                                     🎉 full amounts are paid!
                                   </div>
                                 )}
@@ -863,124 +838,155 @@ const MyAccount = ({courseId}) => {
                             );
                           })
                       ) : (
-                        <Typography className="font-jost text-center text-lg">
+                        <Typography className="font-mulish text-center text-lg">
                           No enrolled courses available.
                         </Typography>
                       )}
                     </div>
                   )}
 
-                  {activeTab === "viewcoursedetails" && (
-  <div>
-    <h2 className="md:text-xl text-lg font-jost font-medium">
-      {selectedCourseName}
-    </h2>
-    <hr className="my-5" />
-    {isLoading ? (
-      <Typography>Loading Zoom meeting details...</Typography>
-    ) : (
-      <div className="w-full max-h-[500px] overflow-y-auto border border-gray-300">
-        <table className="table-auto text-center w-full text-base font-jost border-collapse border border-gray-300">
-          <thead className="bg-[#AF8C3E] text-white">
-            <tr className="border-gray-200">
-              <th className="md:p-3 p-2 rounded-l-xl font-jost font-medium">
-                S.No
-              </th>
-              <th className="md:p-3 p-2 font-jost font-medium">Day</th>
-              <th className="md:p-3 p-2 font-jost font-medium">Time</th>
-              <th className="md:p-3 p-2 font-jost font-medium">Link</th>
-              <th className="p-2">Video</th>
-            </tr>
-          </thead>
-          <tbody>
-            {classDates.map((session, index) => {
-              return (
-                <tr key={index} className="border-b border-gray-200">
-                  <td className="p-2 md:p-3">{index + 1}</td>
-                  <td className="p-2 md:p-3">
-                    {session.date.toLocaleDateString("en-US", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}{" "}
-                    ({session.dayName})
-                  </td>
-                  <td className="p-2 md:p-3">9:00 PM - 11:00 PM</td>
-                  <td className="p-2 text-blue-500 md:p-3">
-                    <a
-                      href={courseZoomMeeting?.joinUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Zoom Link
-                    </a>
-                  </td>
-                  <td className="p-2 md:p-3">
-                  {/* <button 
-  onClick={() => fetchVideos(index)}
-  className="bg-[rgb(175,140,62)] text-white px-3 py-1 rounded hover:bg-[rgb(150,120,55)]"
->
-  View Videos
-</button> */}
-<td className="p-3">
-  <Button 
-    size="small" 
-    className="bg-[#AF8C3E] font-jost" 
-    onClick={() => fetchVideos(index, selectCourseId, session.date.toLocaleDateString("en-US"))}  
-  >
-    View Video
-  </Button>
-</td>
+                  {activeTab === 'viewcoursedetails' && (
+                    <div>
+                      <h2 className="md:text-xl text-lg font-mulish font-medium">
+                        {selectedCourseName}
+                      </h2>
+                      <hr className="my-5" />
+                      {isLoading ? (
+                        <Typography>Loading Zoom meeting details...</Typography>
+                      ) : (
+                        <div className="w-full max-h-[500px] overflow-y-auto border border-gray-300">
+                          <table className="table-auto text-center w-full text-base font-mulish border-collapse border border-gray-300">
+                            <thead className="bg-[#AF8C3E] text-white">
+                              <tr className="border-gray-200">
+                                <th className="md:p-3 p-2 rounded-l-xl font-mulish font-medium">
+                                  S.No
+                                </th>
+                                <th className="md:p-3 p-2 font-mulish font-medium">
+                                  Day
+                                </th>
+                                <th className="md:p-3 p-2 font-mulish font-medium">
+                                  Time
+                                </th>
+                                <th className="md:p-3 p-2 font-mulish font-medium">
+                                  Link
+                                </th>
+                                <th className="p-2">Video</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {classDates.map((session, index) => {
+                                return (
+                                  <tr
+                                    key={index}
+                                    className="border-b border-gray-200"
+                                  >
+                                    <td className="p-2 md:p-3">{index + 1}</td>
+                                    <td className="p-2 md:p-3">
+                                      {session.date.toLocaleDateString(
+                                        'en-US',
+                                        {
+                                          day: 'numeric',
+                                          month: 'long',
+                                          year: 'numeric',
+                                        },
+                                      )}{' '}
+                                      ({session.dayName})
+                                    </td>
+                                    <td className="p-2 md:p-3">
+                                      9:00 PM - 11:00 PM
+                                    </td>
+                                    <td className="p-2 text-blue-500 md:p-3">
+                                      <a
+                                        href={courseZoomMeeting?.joinUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                      >
+                                        Zoom Link
+                                      </a>
+                                    </td>
+                                    <td className="p-2 md:p-3">
+                                      <td className="p-3">
+                                        <Button
+                                          size="small"
+                                          className="bg-[#AF8C3E] font-mulish"
+                                          onClick={() =>
+                                            fetchVideos(
+                                              index,
+                                              selectCourseId,
+                                              session.date.toLocaleDateString(
+                                                'en-US',
+                                              ),
+                                            )
+                                          }
+                                        >
+                                          View Video
+                                        </Button>
+                                      </td>
 
+                                      {selectedSessionIndex === index &&
+                                        videoUrls[
+                                          session.date.toLocaleDateString(
+                                            'en-US',
+                                          )
+                                        ] &&
+                                        (() => {
+                                          const videoUrl =
+                                            videoUrls[
+                                              session.date.toLocaleDateString(
+                                                'en-US',
+                                              )
+                                            ][0];
 
+                                          if (!videoUrl) {
+                                            {
+                                              notify(
+                                                'No video available for this session.',
+                                                'info',
+                                              );
+                                            }
+                                            return null;
+                                          }
 
-{selectedSessionIndex === index && videoUrls[session.date.toLocaleDateString("en-US")] && (() => {
-  const videoUrl = videoUrls[session.date.toLocaleDateString("en-US")][0]; // Get the first video
+                                          const newWindow = window.open(
+                                            '',
+                                            '_blank',
+                                          );
+                                          if (newWindow) {
+                                            newWindow.document.write(`
+                                          <html>
+                                            <head>
+                                              <title>Video Player</title>
+                                              <style>
+                                                body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: black; }
+                                                video { max-width: 100%; height: auto; }
+                                              </style>
+                                              <script>
+                                                document.addEventListener("contextmenu", event => event.preventDefault());
+                                              </script>
+                                            </head>
+                                            <body>
+                                              <video controls autoplay controlsList="nodownload" disablePictureInPicture oncontextmenu="return false;">
+                                                <source src="${videoUrl}" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                              </video>
+                                            </body>
+                                          </html>
+                                        `);
+                                            newWindow.document.close();
+                                          }
 
-  if (!videoUrl) {
-    {/* alert("No video found for this session."); */}
-    return null;
-  }
-
-  const newWindow = window.open("", "_blank");
-  if (newWindow) {
-    newWindow.document.write(`
-      <html>
-        <head>
-          <title>Video Player</title>
-          <style>
-            body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: black; }
-            video { max-width: 100%; height: auto; }
-          </style>
-          <script>
-            document.addEventListener("contextmenu", event => event.preventDefault());
-          </script>
-        </head>
-        <body>
-          <video controls autoplay controlsList="nodownload" disablePictureInPicture oncontextmenu="return false;">
-            <source src="${videoUrl}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </body>
-      </html>
-    `);
-    newWindow.document.close();
-  }
-
-  return null;
-})()}
-
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-
-        </table>
-      </div>
-    )}
-  </div>
-)}
+                                          return null;
+                                        })()}
+                                    </td>
+                                  </tr>
+                                );
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   {activeTab === 'mypaymentdetails' && (
                     <PaymentDetails

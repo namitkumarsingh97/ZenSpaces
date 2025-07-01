@@ -21,7 +21,7 @@ export function StickyNavbar() {
   const router = useRouter();
 
   useEffect(() => {
-    const token =localStorage.getItem('enrollmentToken');
+    const token = localStorage.getItem('enrollmentToken');
     setIsLoggedIn(!!token);
 
     const handleResize = () => {
@@ -33,13 +33,13 @@ export function StickyNavbar() {
   }, []);
 
   const handleLogin = () => {
-   localStorage.setItem('enrollmentToken', 'your-token-value');
+    localStorage.setItem('enrollmentToken', 'your-token-value');
     setIsLoggedIn(true);
   };
 
   const handleLogout = () => {
-   localStorage.removeItem('enrollmentToken');
-   localStorage.removeItem('courseData');
+    localStorage.removeItem('enrollmentToken');
+    localStorage.removeItem('courseData');
     router.push('/login');
     setIsLoggedIn(false);
     router.refresh();
@@ -55,10 +55,10 @@ export function StickyNavbar() {
         <Typography
           as="li"
           variant="small"
-          color="white"
-          className="py-2 px-3 font-jost text-lg font-normal hover:scale-125 rounded hover:bg-[#AF8C3E] transform transition duration-500"
+          // color="white"
+          className="py-2 px-3 font-mulish text-lg font-normal rounded text-[#2C3E50]"
         >
-          Home
+          HOME
         </Typography>
       </Link>
       <Link
@@ -69,10 +69,10 @@ export function StickyNavbar() {
         <Typography
           as="li"
           variant="small"
-          color="white"
-          className="py-2 px-3 font-jost text-lg font-normal hover:scale-125 rounded hover:bg-[#AF8C3E] transform transition duration-500"
+          // color="white"
+          className="py-2 px-3 font-mulish text-lg font-normal rounded text-[#2C3E50]"
         >
-          About
+          ABOUT
         </Typography>
       </Link>
       <Link
@@ -83,10 +83,10 @@ export function StickyNavbar() {
         <Typography
           as="li"
           variant="small"
-          color="white"
-          className="py-2 px-3 font-jost text-lg font-normal hover:scale-125 rounded hover:bg-[#AF8C3E] transform transition duration-500"
+          // color="white"
+          className="py-2 px-3 font-mulish text-lg font-normal rounded text-[#2C3E50]"
         >
-          Courses
+          COURSES
         </Typography>
       </Link>
       <Link
@@ -97,10 +97,10 @@ export function StickyNavbar() {
         <Typography
           as="li"
           variant="small"
-          color="white"
-          className="py-2 px-3 font-jost text-lg font-normal hover:scale-125 rounded hover:bg-[#AF8C3E] transform transition duration-500"
+          // color="white"
+          className="py-2 px-3 font-mulish text-lg font-normal rounded text-[#2C3E50]"
         >
-          Readings
+          READINGS
         </Typography>
       </Link>
       <Link
@@ -111,10 +111,10 @@ export function StickyNavbar() {
         <Typography
           as="li"
           variant="small"
-          color="white"
-          className="py-2 px-3 font-jost text-lg font-normal hover:scale-125 rounded hover:bg-[#AF8C3E] transform transition duration-500"
+          // color="white"
+          className="py-2 px-3 font-mulish text-lg font-normal rounded text-[#2C3E50]"
         >
-          Reports
+          REPORTS
         </Typography>
       </Link>
       <Link
@@ -125,10 +125,10 @@ export function StickyNavbar() {
         <Typography
           as="li"
           variant="small"
-          color="white"
-          className="py-2 px-3 font-jost text-lg font-normal hover:scale-125 rounded hover:bg-[#AF8C3E] transform transition duration-500"
+          // color="white"
+          className="py-2 px-3 font-mulish text-lg font-normal rounded text-[#2C3E50]"
         >
-          Products
+          PRODUCTS
         </Typography>
       </Link>
       <Link
@@ -139,17 +139,17 @@ export function StickyNavbar() {
         <Typography
           as="li"
           variant="small"
-          color="white"
-          className="py-2 px-3 font-jost text-lg font-normal hover:scale-125 rounded hover:bg-[#AF8C3E] transform transition duration-500"
+          // color="white"
+          className="py-2 px-3 font-mulish text-lg font-normal rounded transform text-[#2C3E50]"
         >
-          Contact
+          CONTACT
         </Typography>
       </Link>
       {isLoggedIn ? (
         <>
           <Typography
             as="li"
-            className="py-2 px-3 font-jost text-lg cursor-pointer"
+            className="py-2 px-3 font-mulish text-lg cursor-pointer"
             onClick={handleLogout}
           >
             Sign Out
@@ -166,9 +166,9 @@ export function StickyNavbar() {
               as="li"
               variant="small"
               color="white"
-              className="py-2 px-3 font-jost text-lg font-normal hover:scale-125 rounded bg-[#AF8C3E] transform transition duration-500"
+              className="py-2 px-6 font-mulish text-sm bg-[#70A9A1] font-normal hover:scale-125 rounded transform transition duration-500 text-[#2C3E50]"
             >
-              Login
+              LOGIN
             </Typography>
           </Link>
         </>
@@ -177,71 +177,67 @@ export function StickyNavbar() {
   );
 
   return (
-    <div className="w-full">
-      <div className="mx-auto shadow-none w-full max-w-[80%] backdrop-blur-0 rounded-none border-none ">
-        <Navbar className="mx-auto backdrop-blur-0 max-w-none p-0 backdrop-saturate-0 shadow-none rounded-none bg-opacity-0 border-none py-2">
-          <div className="flex items-center justify-between text-white">
-            <div className="cursor-pointer">
-              <Link href="/">
-                <Image
-                  src="/logo.webp"
-                  width={150}
-                  height={150}
-                  className="w-[100px] sm:w-[110px] md:w-[120px] lg:w-[130px] xl:w-[120px] 2xl:w-[130px] h-auto"
-                />
-              </Link>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="2xl:mr-[10vw] hidden lg:block">{navList}</div>
-              <div className="flex items-center gap-x-2">
-                {isLoggedIn && <ProfileMenu />}
-              </div>
-              <IconButton
-                variant="text"
-                className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-                onClick={() => setOpenNav(!openNav)}
-              >
-                {openNav ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    className="h-6 w-6"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                )}
-              </IconButton>
-            </div>
+    <div className="w-full sticky top-0 bg-[#CCE3DE]">
+      <div className="flex items-center justify-between text-[#2C3E50]">
+        <div className="cursor-pointer">
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              width={150}
+              height={150}
+              className="w-[100px] sm:w-[110px] md:w-[120px] lg:w-[130px] xl:w-[120px] 2xl:w-[130px] h-auto"
+            />
+          </Link>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="2xl:mr-[10vw] hidden lg:block">{navList}</div>
+          <div className="flex items-center gap-x-2">
+            {isLoggedIn && <ProfileMenu />}
           </div>
-          <MobileNav
-            className="bg-black z-999 fixed p-2 left-0 shadow-2xl"
-            open={openNav}
+          <IconButton
+            variant="text"
+            className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+            onClick={() => setOpenNav(!openNav)}
           >
-            {navList}
-          </MobileNav>
-        </Navbar>
+            {openNav ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                className="h-6 w-6"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </IconButton>
+        </div>
       </div>
+      <MobileNav
+        className="bg-black z-999 fixed p-2 left-0 shadow-2xl"
+        open={openNav}
+      >
+        {navList}
+      </MobileNav>
     </div>
   );
 }

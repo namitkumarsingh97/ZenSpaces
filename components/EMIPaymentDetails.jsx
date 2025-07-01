@@ -57,22 +57,24 @@ const EMIPaymentDetails = ({
 
   return (
     <div>
-      <h2 className="md:text-xl text-lg font-jost font-medium">EMI Details</h2>
+      <h2 className="md:text-xl text-lg font-mulish font-medium">
+        EMI Details
+      </h2>
       <hr className="my-5" />
       <div className="w-full overflow-x-auto">
-        <table className="table-auto text-center w-full text-base font-jost">
+        <table className="table-auto text-center w-full text-base font-mulish">
           <thead className="text-white">
             <tr className="border-gray-200">
-              <th className="md:p-3 p-2 rounded-l-xl bg-[#AF8C3E] font-jost font-medium">
+              <th className="md:p-3 p-2 rounded-l-xl bg-[#AF8C3E] font-mulish font-medium">
                 S.No
               </th>
-              <th className="md:p-3 p-2 bg-[#AF8C3E] font-jost font-medium">
+              <th className="md:p-3 p-2 bg-[#AF8C3E] font-mulish font-medium">
                 Date
               </th>
-              <th className="md:p-3 p-2 bg-[#AF8C3E] font-jost font-medium">
+              <th className="md:p-3 p-2 bg-[#AF8C3E] font-mulish font-medium">
                 EMI
               </th>
-              <th className="md:p-3 p-2 bg-[#AF8C3E] font-jost font-medium rounded-r-xl">
+              <th className="md:p-3 p-2 bg-[#AF8C3E] font-mulish font-medium rounded-r-xl">
                 Status
               </th>
             </tr>

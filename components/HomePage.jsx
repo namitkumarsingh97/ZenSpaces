@@ -15,43 +15,28 @@ const HomePage = () => {
   return (
     <div>
       <div className="relative mt-[-20vh] md:mt-[-25vh] lg:mt-[-26vh] 2xl:mt-[-20vh] flex items-center flex-col h-screen overflow-hidden">
-        <div className="relative mt-[30vh] md:mt-[30vh] lg:mt-[21vh] 2xl:mt-[20vh] flex flex-col 2xl:gap-6 lg:gap-3 justify-center items-center z-0 p-3 bg-opacity-50 rounded-xl">
+        <div className="relative mt-[30vh] md:mt-[30vh] lg:mt-[21vh] 2xl:mt-[20vh] flex flex-col 2xl:gap-6 lg:gap-3 justify-center items-center z-0 p-3 rounded-xl">
           <Image
-            src={'/astro.webp'}
+            src={'/logo.png'}
             width={800}
             height={1000}
-            className="w-full md:w-[90%] lg:w-[70%] 2xl:w-[70%]"
+            className="w-full md:w-[80%] lg:w-[60%] 2xl:w-[60%]"
             alt="bannerImage"
           />
-          <div className="flex flex-col gap-5 justify-center items-center">
-            <h3 className="text-base md:text-lg lg:text-xl text-center font-jost text-white">
-              ASTROLOGY COURSES || ASTROLOGY PRODUCTS || KUNDLI READINGS
+          <div className="flex flex-col gap-1 justify-center items-center">
+            <h3 className="text-base md:text-lg lg:text-xl text-center font-mulish text-[#A8D5BA]">
+              ZENSPACES
             </h3>
-            <h3 className="text-xl md:text-2xl lg:text-3xl text-center text-white font-ibarra italic">
-              Discover Your Path With Astrology.
+            <h3 className="text-xl md:text-2xl lg:text-3xl text-center text-[#A8D5BA] font-manrope">
+              DECLUTTER YOUR DIGITAL LIFE
             </h3>
           </div>
         </div>
-
-        <div className="flex flex-col gap-5 lg:gap-0 lg:flex-row max-w-[80%] mt-5 lg:mt-15 2xl:mt-20 w-full justify-between items-center">
-          <PopUp2 />
-          <PopUp3 />
-        </div>
-
-        <video
-          src={'/bgvideo3.mp4'}
-          autoPlay
-          loop
-          muted
-          playsInline
-          disablePictureInPicture
-          className="absolute z-[-1] w-auto opacity-80 min-w-full min-h-full max-w-none object-cover"
-        />
       </div>
       <ServiceSection />
       <ProductsSlider />
       <Testimonials />
-      <Blogs />
+      {/* <Blogs /> */}
       <ContactUs />
     </div>
   );
